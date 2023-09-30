@@ -40,8 +40,6 @@ func _physics_process(delta):
 	move_and_slide()
 	
 
-
-
 func _on_reset_box_body_entered(body):
 	reset_spawn()
 

@@ -72,4 +72,6 @@ shape = SubResource("RectangleShape2D_ox552")
 [node name="SpawnPoint" type="Node2D" parent="."]
 position = Vector2(2.08165e-12, -50)
 
+[node name="Hi" type="Node2D" parent="."]
+
 [connection signal="body_entered" from="ResetBox" to="CharacterBody2D" method="_on_reset_box_body_entered"]
