@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bg5duujpvcsbp"]
+[gd_scene load_steps=7 format=3 uid="uid://c0b8bysasca0i"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_uopcw"]
-[ext_resource type="Texture2D" uid="uid://dvtjb17gjeyln" path="res://graphics/lulu.png" id="2_qasda"]
+[ext_resource type="Texture2D" uid="uid://ddb5b6lmhgike" path="res://graphics/lulu.png" id="2_qasda"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78rb3"]
 size = Vector2(32, 32)
