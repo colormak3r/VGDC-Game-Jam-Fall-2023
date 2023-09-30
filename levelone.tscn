@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://ckeretr8wrklo"]
+[gd_scene load_steps=7 format=3 uid="uid://d4l1lj3dkgdcy"]
 
-[ext_resource type="PackedScene" uid="uid://c0b8bysasca0i" path="res://player.tscn" id="1_h3l18"]
+[ext_resource type="PackedScene" uid="uid://bg5duujpvcsbp" path="res://player.tscn" id="1_h3l18"]
 [ext_resource type="Texture2D" uid="uid://dmfyy6ptsnlr8" path="res://graphics/ph_tiles.png" id="2_uasqq"]
 [ext_resource type="PackedScene" path="res://GameManager.tscn" id="3_3hwfs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ox552"]
+size = Vector2(255, 20)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qiinp"]
 texture = ExtResource("2_uasqq")
@@ -47,18 +50,10 @@ texture = ExtResource("2_uasqq")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_qiinp")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ox552"]
-size = Vector2(255, 20)
-
 [node name="LevelOne" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_h3l18")]
 position = Vector2(4, -147)
-
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_qt8a7")
-format = 2
-layer_0/tile_data = PackedInt32Array(-65538, 0, 0, -65537, 65536, 0, -131072, 65536, 0, -131071, 65536, 0, -131070, 65536, 0, -131069, 131072, 0, -1, 65536, 1, -65536, 65536, 1, -65535, 65536, 1, -65534, 65536, 1, -2, 0, 2, -65533, 131072, 2, 65535, 0, 2, 2, 131072, 2, 0, 65536, 2, 1, 65536, 2)
 
 [node name="Node2D" parent="." instance=ExtResource("3_3hwfs")]
 
@@ -72,10 +67,11 @@ shape = SubResource("RectangleShape2D_ox552")
 [node name="SpawnPoint" type="Node2D" parent="."]
 position = Vector2(2.08165e-12, -50)
 
+[node name="DimensionManager" type="Node2D" parent="."]
 
-[node name="Hi" type="Node2D" parent="."]
-
-[node name="Khoa\'s Node" type="Node2D" parent="."]
-
+[node name="TileMap" type="TileMap" parent="DimensionManager"]
+tile_set = SubResource("TileSet_qt8a7")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65538, 0, 0, -65537, 65536, 0, -131072, 65536, 0, -131071, 65536, 0, -131070, 65536, 0, -131069, 131072, 0, -1, 65536, 1, -65536, 65536, 1, -65535, 65536, 1, -65534, 65536, 1, -2, 0, 2, -65533, 131072, 2, 65535, 0, 2, 2, 131072, 2, 0, 65536, 2, 1, 65536, 2)
 
 [connection signal="body_entered" from="ResetBox" to="CharacterBody2D" method="_on_reset_box_body_entered"]
