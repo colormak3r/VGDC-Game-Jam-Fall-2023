@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://d4l1lj3dkgdcy"]
+[gd_scene load_steps=7 format=3 uid="uid://ckeretr8wrklo"]
 
-[ext_resource type="PackedScene" uid="uid://bg5duujpvcsbp" path="res://player.tscn" id="1_h3l18"]
+[ext_resource type="PackedScene" uid="uid://c0b8bysasca0i" path="res://player.tscn" id="1_h3l18"]
 [ext_resource type="Texture2D" uid="uid://dmfyy6ptsnlr8" path="res://graphics/ph_tiles.png" id="2_uasqq"]
 [ext_resource type="PackedScene" path="res://GameManager.tscn" id="3_3hwfs"]
 
@@ -72,6 +72,10 @@ shape = SubResource("RectangleShape2D_ox552")
 [node name="SpawnPoint" type="Node2D" parent="."]
 position = Vector2(2.08165e-12, -50)
 
+
 [node name="Hi" type="Node2D" parent="."]
+
+[node name="Khoa\'s Node" type="Node2D" parent="."]
+
 
 [connection signal="body_entered" from="ResetBox" to="CharacterBody2D" method="_on_reset_box_body_entered"]
