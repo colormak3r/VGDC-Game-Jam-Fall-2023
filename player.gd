@@ -7,6 +7,8 @@ const JUMP_VELOCITY = -200.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 @export var gravity : float = 250
 @onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var spawn_point = $"../SpawnPoint"
+@onready var player = $"."
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -36,3 +38,13 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+
+
+
+func _on_reset_box_body_entered(body):
+	reset_spawn()
+
+func reset_spawn():
+	player.position = spawn_point.position
+	
