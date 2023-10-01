@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://i484e7xv2skw" path="res://graphics/fire.png" id="1_3hmmt"]
 [ext_resource type="Script" path="res://fire.gd" id="1_x67v5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lg51q"]
-size = Vector2(16, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_q0vx5"]
+radius = 5.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mp434"]
 atlas = ExtResource("1_3hmmt")
@@ -41,10 +41,11 @@ script = ExtResource("1_x67v5")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_lg51q")
+position = Vector2(0, 10)
+shape = SubResource("CircleShape2D_q0vx5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qdn3c")
-frame_progress = 0.392475
+frame_progress = 0.642285
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
