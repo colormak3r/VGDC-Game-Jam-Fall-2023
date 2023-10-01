@@ -1,9 +1,7 @@
-
 [gd_scene load_steps=10 format=3 uid="uid://ckeretr8wrklo"]
 
-[ext_resource type="PackedScene" uid="uid://c0b8bysasca0i" path="res://player.tscn" id="1_h3l18"]
-[ext_resource type="Script" path="res://DimensionManager.gd" id="2_iyvlk"]
-
+[ext_resource type="PackedScene" uid="uid://bg5duujpvcsbp" path="res://player.tscn" id="1_h3l18"]
+[ext_resource type="Script" path="res://DimensionManager.gd" id="2_n6yru"]
 [ext_resource type="Texture2D" uid="uid://dmfyy6ptsnlr8" path="res://graphics/ph_tiles.png" id="2_uasqq"]
 [ext_resource type="Texture2D" uid="uid://d1k2r5abcdu6w" path="res://graphics/tileset.PNG" id="4_122iq"]
 
@@ -93,13 +91,15 @@ texture = ExtResource("4_122iq")
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_m1tma"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_fd8lj")
 
 [node name="LevelOne" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_h3l18")]
-
+collision_mask = 3
+jump_velocity = -300.0
 
 [node name="ResetBox" type="Area2D" parent="."]
 position = Vector2(0, 200)
@@ -111,6 +111,10 @@ shape = SubResource("RectangleShape2D_ox552")
 [node name="SpawnPoint" type="Node2D" parent="."]
 position = Vector2(0, -100)
 
+[node name="DimensionManager" type="Node2D" parent="." node_paths=PackedStringArray("dimension_1_tile_map", "dimension_2_tile_map")]
+script = ExtResource("2_n6yru")
+dimension_1_tile_map = NodePath("Dimension 1 TileMap")
+dimension_2_tile_map = NodePath("Dimension 2 TileMap")
 
 [node name="Dimension 1 TileMap" type="TileMap" parent="DimensionManager"]
 tile_set = SubResource("TileSet_qt8a7")
@@ -122,5 +126,4 @@ tile_set = SubResource("TileSet_m1tma")
 format = 2
 layer_0/tile_data = PackedInt32Array(262141, 0, 0, 327677, 0, 2, 262142, 65536, 0, 327678, 65536, 1, 393214, 0, 2, 262143, 65536, 0, 327679, 65536, 1, 393215, 65536, 2, 196608, 65536, 0, 262144, 65536, 1, 327680, 65536, 2, 196609, 65536, 0, 262145, 65536, 1, 327681, 131072, 2, 196610, 131072, 0, 262146, 131072, 2, -65521, 0, 0, 15, 0, 2, -65520, 65536, 0, 16, 65536, 1, 65552, 0, 2, -65519, 65536, 0, 17, 65536, 1, 65553, 65536, 2, -65518, 65536, 0, 18, 65536, 1, 65554, 65536, 2, -65517, 65536, 0, 19, 65536, 1, 65555, 131072, 2, -65516, 131072, 0, 20, 131072, 2, -196573, 0, 0, -131037, 0, 2, -196572, 65536, 0, -131036, 65536, 1, -65500, 0, 2, -196571, 65536, 0, -131035, 65536, 1, -65499, 65536, 2, -196570, 65536, 0, -131034, 65536, 1, -65498, 65536, 2, -196569, 65536, 0, -131033, 65536, 1, -65497, 131072, 2, -196568, 131072, 0, -131032, 131072, 2, 65589, 0, 0, 131125, 0, 2, 65590, 65536, 0, 131126, 65536, 1, 196662, 0, 2, 65591, 65536, 0, 131127, 65536, 1, 196663, 65536, 2, 65592, 65536, 0, 131128, 65536, 1, 196664, 65536, 2, 65593, 65536, 0, 131129, 65536, 1, 196665, 131072, 2, 65594, 131072, 0, 131130, 131072, 2)
 
-[connection signal="swap_pressed" from="Player" to="DimensionManager" method="_on_player_swap_pressed"]
 [connection signal="body_entered" from="ResetBox" to="Player" method="_on_reset_box_body_entered"]
