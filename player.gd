@@ -10,8 +10,6 @@ const JUMP_VELOCITY = -200.0
 @onready var spawn_point = $"../SpawnPoint"
 @onready var player = $"."
 
-signal swap_pressed
-
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
