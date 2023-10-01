@@ -28,3 +28,5 @@ func set_dimension_visibility(value : bool):
 	dimension_1_tile_map.visible = value
 	dimension_2_tile_map.visible = !value
 
+
+
