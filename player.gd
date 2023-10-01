@@ -4,11 +4,20 @@ extends CharacterBody2D
 @export var jump_velocity : float = -200.0
 @export var gravity : float = 250
 
+@export var dimension_1_tile_map : TileMap
+@export var dimension_2_tile_map : TileMap
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var spawn_point = $"../SpawnPoint"
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var player = $"."
+
+func _ready():
+	for fire in dimension_1_tile_map.get_children(): 
+		fire.fire_triggered.connect(_on_fire_triggered)
+	for fire in dimension_2_tile_map.get_children(): 
+		fire.fire_triggered.connect(_on_fire_triggered)
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -20,18 +29,9 @@ func _physics_process(delta):
 	else :
 		animated_sprite_2d.play("Jump")
 	
-	if Input.is_action_just_pressed("swap"):
-		swapped()
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():		
 		velocity.y = jump_velocity
-		
-#	if Input.is_action_just_pressed("swap") and  is_on_dimension1:
-#		is_on_dimension1 = false
-#		player.set_collision_mask_value(2, true)
-#	else:
-#		is_on_dimension1 = true
-#		player.set_collision_mask_value(1, true)
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -52,8 +52,9 @@ func _physics_process(delta):
 func _on_reset_box_body_entered(body):
 	reset_spawn()
 
+func _on_fire_triggered() :
+	reset_spawn()
+
 func reset_spawn():
 	player.position = spawn_point.position
-	
-func swapped():
-	emit_signal("swap_pressed")
+
