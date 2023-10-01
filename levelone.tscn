@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckeretr8wrklo"]
+[gd_scene load_steps=7 format=3 uid="uid://ckeretr8wrklo"]
 
 [ext_resource type="PackedScene" uid="uid://c0b8bysasca0i" path="res://player.tscn" id="1_h3l18"]
+[ext_resource type="Script" path="res://DimensionManager.gd" id="2_iyvlk"]
 [ext_resource type="Texture2D" uid="uid://dmfyy6ptsnlr8" path="res://graphics/ph_tiles.png" id="2_uasqq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ox552"]
@@ -53,6 +54,7 @@ sources/0 = SubResource("TileSetAtlasSource_qiinp")
 
 [node name="Player" parent="." instance=ExtResource("1_h3l18")]
 position = Vector2(0, -50)
+jump_velocity = -300.0
 
 [node name="ResetBox" type="Area2D" parent="."]
 position = Vector2(0, 200)
@@ -64,11 +66,19 @@ shape = SubResource("RectangleShape2D_ox552")
 [node name="SpawnPoint" type="Node2D" parent="."]
 position = Vector2(0, -50)
 
-[node name="DimensionManager" type="Node2D" parent="."]
+[node name="DimensionManager" type="Node2D" parent="." node_paths=PackedStringArray("dimension_1_tile_map", "dimension_2_tile_map")]
+script = ExtResource("2_iyvlk")
+dimension_1_tile_map = NodePath("Dimension 1 TileMap")
+dimension_2_tile_map = NodePath("Dimension 2 TileMap")
 
 [node name="Dimension 1 TileMap" type="TileMap" parent="DimensionManager"]
 tile_set = SubResource("TileSet_qt8a7")
 format = 2
 layer_0/tile_data = PackedInt32Array(196610, 131072, 0, 196609, 65536, 0, 196608, 65536, 0, 262143, 65536, 0, 262142, 65536, 0, 262141, 0, 0, 327677, 0, 2, 327678, 65536, 1, 327679, 65536, 1, 262144, 65536, 1, 262145, 65536, 1, 262146, 131072, 2, 393214, 0, 2, 393215, 65536, 2, 327680, 65536, 2, 327681, 131072, 2)
+
+[node name="Dimension 2 TileMap" type="TileMap" parent="DimensionManager"]
+tile_set = SubResource("TileSet_qt8a7")
+format = 2
+layer_0/tile_data = PackedInt32Array(65542, 0, 0, 131078, 0, 2, 65543, 65536, 0, 131079, 65536, 1, 196615, 0, 2, 65544, 65536, 0, 131080, 65536, 1, 196616, 65536, 2, 65545, 65536, 0, 131081, 65536, 1, 196617, 65536, 2, 65546, 65536, 0, 131082, 65536, 1, 196618, 131072, 2, 65547, 131072, 0, 131083, 131072, 2, 131060, 0, 0, 196596, 0, 2, 131061, 65536, 0, 196597, 65536, 1, 262133, 0, 2, 131062, 65536, 0, 196598, 65536, 1, 262134, 65536, 2, 131063, 65536, 0, 196599, 65536, 1, 262135, 65536, 2, 131064, 65536, 0, 196600, 65536, 1, 262136, 131072, 2, 131065, 131072, 0, 196601, 131072, 2)
 
 [connection signal="body_entered" from="ResetBox" to="Player" method="_on_reset_box_body_entered"]
