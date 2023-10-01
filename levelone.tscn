@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://ckeretr8wrklo"]
+[gd_scene load_steps=11 format=3 uid="uid://ckeretr8wrklo"]
 
 [ext_resource type="PackedScene" uid="uid://bg5duujpvcsbp" path="res://player.tscn" id="1_h3l18"]
 [ext_resource type="Texture2D" uid="uid://dmfyy6ptsnlr8" path="res://graphics/ph_tiles.png" id="2_uasqq"]
 [ext_resource type="Script" path="res://DimensionManager.gd" id="2_yxbp4"]
 [ext_resource type="Texture2D" uid="uid://d1k2r5abcdu6w" path="res://graphics/tileset.PNG" id="4_122iq"]
+[ext_resource type="PackedScene" uid="uid://bo7frhx3q3jsl" path="res://fire.tscn" id="5_t7r6o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ox552"]
 size = Vector2(2000, 10)
@@ -123,5 +124,8 @@ layer_0/tile_data = PackedInt32Array(262141, 0, 0, 327677, 0, 2, 262142, 65536, 
 tile_set = SubResource("TileSet_qt8a7")
 format = 2
 layer_0/tile_data = PackedInt32Array(196610, 131072, 0, 196609, 65536, 0, 196608, 65536, 0, 262143, 65536, 0, 262142, 65536, 0, 262141, 0, 0, 327677, 0, 2, 327678, 65536, 1, 327679, 65536, 1, 262144, 65536, 1, 262145, 65536, 1, 262146, 131072, 2, 393214, 0, 2, 393215, 65536, 2, 327680, 65536, 2, 327681, 131072, 2, 65542, 0, 0, 131078, 0, 2, 65543, 65536, 0, 131079, 65536, 1, 196615, 0, 2, 65544, 65536, 0, 131080, 65536, 1, 196616, 65536, 2, 65545, 65536, 0, 131081, 65536, 1, 196617, 65536, 2, 65546, 65536, 0, 131082, 65536, 1, 196618, 131072, 2, 65547, 131072, 0, 131083, 131072, 2, -196584, 0, 0, -131048, 0, 2, -196583, 65536, 0, -131047, 65536, 1, -65511, 0, 2, -196582, 65536, 0, -131046, 65536, 1, -65510, 65536, 2, -196581, 65536, 0, -131045, 65536, 1, -65509, 65536, 2, -196580, 65536, 0, -131044, 65536, 1, -65508, 131072, 2, -196579, 131072, 0, -131043, 131072, 2, -65492, 0, 0, 44, 0, 2, -65491, 65536, 0, 45, 65536, 1, 65581, 0, 2, -65490, 65536, 0, 46, 65536, 1, 65582, 65536, 2, -65489, 65536, 0, 47, 65536, 1, 65583, 65536, 2, -65488, 65536, 0, 48, 65536, 1, 65584, 131072, 2, -65487, 131072, 0, 49, 131072, 2, 196670, 0, 0, 262206, 0, 2, 196671, 65536, 0, 262207, 65536, 1, 327743, 0, 2, 196672, 65536, 0, 262208, 65536, 1, 327744, 65536, 2, 196673, 65536, 0, 262209, 65536, 1, 327745, 65536, 2, 196674, 65536, 0, 262210, 65536, 1, 327746, 131072, 2, 196675, 131072, 0, 262211, 131072, 2)
+
+[node name="Fire" parent="DimensionManager/Dimension 1 TileMap" instance=ExtResource("5_t7r6o")]
+position = Vector2(176.28, 0)
 
 [connection signal="body_entered" from="ResetBox" to="Player" method="_on_reset_box_body_entered"]
