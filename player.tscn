@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0b8bysasca0i"]
+[gd_scene load_steps=8 format=3 uid="uid://bg5duujpvcsbp"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_uopcw"]
+[ext_resource type="PackedScene" uid="uid://nbnlv7de2vxv" path="res://TimerLabel.tscn" id="2_dnc1h"]
 [ext_resource type="Texture2D" uid="uid://ddb5b6lmhgike" path="res://graphics/lulu.png" id="2_qasda"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_78rb3"]
-size = Vector2(32, 32)
+[sub_resource type="CircleShape2D" id="CircleShape2D_oviij"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wa3mk"]
 atlas = ExtResource("2_qasda")
@@ -33,17 +33,24 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_uopcw")
+jump_velocity = -300.0
 gravity = 1000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_78rb3")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
-drag_horizontal_enabled = true
+position = Vector2(0, 4.705)
+shape = SubResource("CircleShape2D_oviij")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lxluh")
-animation = &"Jump"
+animation = &"Idle"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="Control" parent="Camera2D" instance=ExtResource("2_dnc1h")]
+offset_left = -182.0
+offset_top = -110.0
+offset_right = -182.0
+offset_bottom = -110.0
