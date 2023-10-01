@@ -1,6 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 [gd_scene load_steps=10 format=3 uid="uid://ckeretr8wrklo"]
+=======
+[gd_scene load_steps=6 format=3 uid="uid://ckeretr8wrklo"]
+>>>>>>> parent of 149b170 (Merge pull request #4 from colormak3r/Khoa's-branch)
 
 [ext_resource type="PackedScene" uid="uid://bg5duujpvcsbp" path="res://player.tscn" id="1_h3l18"]
 [ext_resource type="Script" path="res://DimensionManager.gd" id="2_n6yru"]
@@ -9,6 +13,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://ckeretr8wrklo"]
 
 [ext_resource type="PackedScene" uid="uid://c0b8bysasca0i" path="res://player.tscn" id="1_h3l18"]
+<<<<<<< HEAD
+>>>>>>> parent of 149b170 (Merge pull request #4 from colormak3r/Khoa's-branch)
+=======
 >>>>>>> parent of 149b170 (Merge pull request #4 from colormak3r/Khoa's-branch)
 [ext_resource type="Texture2D" uid="uid://dmfyy6ptsnlr8" path="res://graphics/ph_tiles.png" id="2_uasqq"]
 
@@ -58,6 +65,7 @@ texture = ExtResource("2_uasqq")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_qiinp")
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fd8lj"]
@@ -116,6 +124,12 @@ jump_velocity = -300.0
 position = Vector2(0, -50)
 >>>>>>> parent of 149b170 (Merge pull request #4 from colormak3r/Khoa's-branch)
 
+=======
+[node name="LevelOne" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_h3l18")]
+position = Vector2(0, -50)
+>>>>>>> parent of 149b170 (Merge pull request #4 from colormak3r/Khoa's-branch)
 
 [node name="ResetBox" type="Area2D" parent="."]
 position = Vector2(0, 200)
@@ -126,6 +140,7 @@ shape = SubResource("RectangleShape2D_ox552")
 
 [node name="SpawnPoint" type="Node2D" parent="."]
 position = Vector2(0, -50)
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 
@@ -138,6 +153,10 @@ dimension_2_tile_map = NodePath("Dimension 2 TileMap")
 [node name="DimensionManager" type="Node2D" parent="."]
 >>>>>>> parent of 149b170 (Merge pull request #4 from colormak3r/Khoa's-branch)
 
+=======
+
+[node name="DimensionManager" type="Node2D" parent="."]
+>>>>>>> parent of 149b170 (Merge pull request #4 from colormak3r/Khoa's-branch)
 
 [node name="Dimension 1 TileMap" type="TileMap" parent="DimensionManager"]
 tile_set = SubResource("TileSet_qt8a7")
