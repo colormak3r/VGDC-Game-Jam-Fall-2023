@@ -23,7 +23,10 @@ func swap_dimension():
 func set_dimension_physic(value : bool):
 	dimension_1_tile_map.set_layer_enabled(0,value)
 	dimension_2_tile_map.set_layer_enabled(0,!value)
-
+	
 func set_dimension_visibility(value : bool):
 	dimension_1_tile_map.visible = value
 	dimension_2_tile_map.visible = !value
+
+
+
