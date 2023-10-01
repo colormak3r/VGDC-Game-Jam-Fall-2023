@@ -20,8 +20,6 @@ func _physics_process(delta):
 	else :
 		animated_sprite_2d.play("Jump")
 	
-	if Input.is_action_just_pressed("swap"):
-		swapped()
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():		
 		velocity.y = JUMP_VELOCITY
@@ -48,5 +46,4 @@ func _on_reset_box_body_entered(body):
 func reset_spawn():
 	player.position = spawn_point.position
 	
-func swapped():
-	emit_signal("swap_pressed")
+

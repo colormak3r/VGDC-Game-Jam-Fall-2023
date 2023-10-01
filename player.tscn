@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ddb5b6lmhgike" path="res://graphics/lulu.png" id="2_qasda"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78rb3"]
-size = Vector2(32, 32)
+size = Vector2(30, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wa3mk"]
 atlas = ExtResource("2_qasda")
@@ -43,7 +43,7 @@ shape = SubResource("RectangleShape2D_78rb3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lxluh")
-animation = &"Jump"
+animation = &"Idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
