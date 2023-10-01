@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 
 [gd_scene load_steps=10 format=3 uid="uid://ckeretr8wrklo"]
 
 [ext_resource type="PackedScene" uid="uid://bg5duujpvcsbp" path="res://player.tscn" id="1_h3l18"]
 [ext_resource type="Script" path="res://DimensionManager.gd" id="2_n6yru"]
 
+=======
+[gd_scene load_steps=6 format=3 uid="uid://ckeretr8wrklo"]
+
+[ext_resource type="PackedScene" uid="uid://c0b8bysasca0i" path="res://player.tscn" id="1_h3l18"]
+>>>>>>> parent of 149b170 (Merge pull request #4 from colormak3r/Khoa's-branch)
 [ext_resource type="Texture2D" uid="uid://dmfyy6ptsnlr8" path="res://graphics/ph_tiles.png" id="2_uasqq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ox552"]
@@ -52,6 +58,7 @@ texture = ExtResource("2_uasqq")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_qiinp")
 
+<<<<<<< HEAD
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fd8lj"]
 texture = ExtResource("4_122iq")
@@ -102,6 +109,12 @@ sources/0 = SubResource("TileSetAtlasSource_fd8lj")
 [node name="Player" parent="." instance=ExtResource("1_h3l18")]
 collision_mask = 3
 jump_velocity = -300.0
+=======
+[node name="LevelOne" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_h3l18")]
+position = Vector2(0, -50)
+>>>>>>> parent of 149b170 (Merge pull request #4 from colormak3r/Khoa's-branch)
 
 
 [node name="ResetBox" type="Area2D" parent="."]
@@ -113,12 +126,17 @@ shape = SubResource("RectangleShape2D_ox552")
 
 [node name="SpawnPoint" type="Node2D" parent="."]
 position = Vector2(0, -50)
+<<<<<<< HEAD
 
 
 [node name="DimensionManager" type="Node2D" parent="." node_paths=PackedStringArray("dimension_1_tile_map", "dimension_2_tile_map")]
 script = ExtResource("2_n6yru")
 dimension_1_tile_map = NodePath("Dimension 1 TileMap")
 dimension_2_tile_map = NodePath("Dimension 2 TileMap")
+=======
+
+[node name="DimensionManager" type="Node2D" parent="."]
+>>>>>>> parent of 149b170 (Merge pull request #4 from colormak3r/Khoa's-branch)
 
 
 [node name="Dimension 1 TileMap" type="TileMap" parent="DimensionManager"]
