@@ -10,8 +10,6 @@ extends CharacterBody2D
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var player = $"."
 
-var is_on_dimension1: bool = true
-
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -22,6 +20,8 @@ func _physics_process(delta):
 	else :
 		animated_sprite_2d.play("Jump")
 	
+	if Input.is_action_just_pressed("swap"):
+		swapped()
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():		
 		velocity.y = jump_velocity
@@ -55,3 +55,5 @@ func _on_reset_box_body_entered(body):
 func reset_spawn():
 	player.position = spawn_point.position
 	
+func swapped():
+	emit_signal("swap_pressed")

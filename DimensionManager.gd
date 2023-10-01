@@ -1,5 +1,6 @@
 extends Node2D
 
+
 @export var dimension_1_tile_map : TileMap
 @export var dimension_2_tile_map : TileMap
 
@@ -26,3 +27,4 @@ func set_dimension_physic(value : bool):
 func set_dimension_visibility(value : bool):
 	dimension_1_tile_map.visible = value
 	dimension_2_tile_map.visible = !value
+
