@@ -7,7 +7,10 @@ extends CharacterBody2D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var spawn_point = $"../SpawnPoint"
+@onready var collision_shape_2d = $CollisionShape2D
 @onready var player = $"."
+
+var is_on_dimension1: bool = true
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -22,6 +25,13 @@ func _physics_process(delta):
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():		
 		velocity.y = jump_velocity
+		
+#	if Input.is_action_just_pressed("swap") and  is_on_dimension1:
+#		is_on_dimension1 = false
+#		player.set_collision_mask_value(2, true)
+#	else:
+#		is_on_dimension1 = true
+#		player.set_collision_mask_value(1, true)
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

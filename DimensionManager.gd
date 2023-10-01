@@ -20,7 +20,8 @@ func swap_dimension():
 	set_dimension_visibility(dimension_1_active)
 
 func set_dimension_physic(value : bool):
-	pass
+	dimension_1_tile_map.set_layer_enabled(0,value)
+	dimension_2_tile_map.set_layer_enabled(0,!value)
 	
 func set_dimension_visibility(value : bool):
 	dimension_1_tile_map.visible = value
