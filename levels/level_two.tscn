@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b41d87onbywlg"]
+[gd_scene load_steps=7 format=3 uid="uid://0kv8u4ni1osv"]
 
 [ext_resource type="Texture2D" uid="uid://d1k2r5abcdu6w" path="res://graphics/tileset.PNG" id="1_8ndw8"]
 [ext_resource type="PackedScene" uid="uid://bg5duujpvcsbp" path="res://player.tscn" id="2_y3gmx"]
-[ext_resource type="PackedScene" uid="uid://b105lh8bok01d" path="res://Portal.tscn" id="3_6vj78"]
-[ext_resource type="Script" path="res://Label.gd" id="3_esjs1"]
+[ext_resource type="Script" path="res://scripts/label.gd" id="3_3o7wc"]
+[ext_resource type="PackedScene" uid="uid://b105lh8bok01d" path="res://required_components/portal.tscn" id="3_6vj78"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_upuxp"]
 texture = ExtResource("1_8ndw8")
@@ -65,7 +65,7 @@ offset_left = -180.0
 offset_top = -100.0
 offset_right = -140.0
 offset_bottom = -77.0
-script = ExtResource("3_esjs1")
+script = ExtResource("3_3o7wc")
 
 [node name="Area2D" parent="." instance=ExtResource("3_6vj78")]
 position = Vector2(185, -40)

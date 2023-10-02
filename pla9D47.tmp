@@ -35,8 +35,10 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_0sexr")
+speed = null
 jump_velocity = -300.0
 gravity = 1000.0
+max_distance_from_center = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4.705)

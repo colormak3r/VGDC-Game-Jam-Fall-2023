@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://dtwnsdcfwsxsa"]
 
-[ext_resource type="Script" path="res://resetbox.gd" id="1_i5gnu"]
+[ext_resource type="Script" path="res://scripts/resetbox.gd" id="1_2a1ou"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ox552"]
 size = Vector2(2000, 10)
 
 [node name="Reset Box" type="Area2D"]
 position = Vector2(0, 200)
-script = ExtResource("1_i5gnu")
+script = ExtResource("1_2a1ou")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ox552")
