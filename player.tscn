@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://bg5duujpvcsbp"]
+[gd_scene load_steps=15 format=3 uid="uid://bg5duujpvcsbp"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_0sexr"]
+[ext_resource type="Texture2D" uid="uid://ddb5b6lmhgike" path="res://graphics/lulu.png" id="2_qasda"]
 [ext_resource type="Texture2D" uid="uid://cc0qwim6esjou" path="res://graphics/lulu (4).png" id="3_oj6hv"]
 [ext_resource type="Texture2D" uid="uid://bnliihjcsmlit" path="res://graphics/Medievalbg_assembled.PNG" id="3_ry2jl"]
 [ext_resource type="Script" path="res://scripts/label.gd" id="3_yuqfr"]
@@ -9,15 +10,15 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oviij"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kgh08"]
-atlas = ExtResource("3_oj6hv")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_wa3mk"]
+atlas = ExtResource("2_qasda")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jpj8q"]
-atlas = ExtResource("3_oj6hv")
-region = Rect2(32, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxijl"]
+atlas = ExtResource("2_qasda")
+region = Rect2(0, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q3l1h"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_md72p"]
 atlas = ExtResource("3_oj6hv")
 region = Rect2(0, 64, 32, 32)
 
@@ -33,7 +34,7 @@ region = Rect2(0, 32, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kgh08")
+"texture": SubResource("AtlasTexture_wa3mk")
 }],
 "loop": true,
 "name": &"Idle",
@@ -41,7 +42,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jpj8q")
+"texture": SubResource("AtlasTexture_gxijl")
 }],
 "loop": true,
 "name": &"Jump",
@@ -49,7 +50,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q3l1h")
+"texture": SubResource("AtlasTexture_md72p")
 }],
 "loop": true,
 "name": &"Spin",
@@ -80,7 +81,7 @@ shape = SubResource("CircleShape2D_oviij")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lxluh")
-animation = &"Idle"
+animation = &"Walk"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
