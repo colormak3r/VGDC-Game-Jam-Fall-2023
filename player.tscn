@@ -58,5 +58,5 @@ offset_right = -140.0
 offset_bottom = -77.0
 script = ExtResource("3_yuqfr")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Jump AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_s5wt7")
