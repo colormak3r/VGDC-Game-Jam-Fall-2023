@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du8dr3c12yes"
-path="res://.godot/imported/lulu (3).png-9ec1b6ddcf46a93248906757f7aa06eb.ctex"
+uid="uid://cu3tejm8a203c"
+path="res://.godot/imported/scifi_tileset.png-4f709cadef2351b13951a08119fbf55c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/lulu (3).png"
-dest_files=["res://.godot/imported/lulu (3).png-9ec1b6ddcf46a93248906757f7aa06eb.ctex"]
+source_file="res://graphics/scifi_tileset.png"
+dest_files=["res://.godot/imported/scifi_tileset.png-4f709cadef2351b13951a08119fbf55c.ctex"]
 
 [params]
 

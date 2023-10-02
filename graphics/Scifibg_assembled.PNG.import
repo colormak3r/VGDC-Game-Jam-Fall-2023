@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du8dr3c12yes"
-path="res://.godot/imported/lulu (3).png-9ec1b6ddcf46a93248906757f7aa06eb.ctex"
+uid="uid://ba3kj1radmpyw"
+path="res://.godot/imported/Scifibg_assembled.PNG-f9fd5347e18a70f96fabc4af26002677.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/lulu (3).png"
-dest_files=["res://.godot/imported/lulu (3).png-9ec1b6ddcf46a93248906757f7aa06eb.ctex"]
+source_file="res://graphics/Scifibg_assembled.PNG"
+dest_files=["res://.godot/imported/Scifibg_assembled.PNG-f9fd5347e18a70f96fabc4af26002677.ctex"]
 
 [params]
 

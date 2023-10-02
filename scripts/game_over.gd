@@ -1,7 +1,7 @@
 extends Control
 
 
-var level : String = "res://levelone.tscn"
+var level : String = "res://levels/tutorial.tscn"
 
 
 func _on_restart_pressed():

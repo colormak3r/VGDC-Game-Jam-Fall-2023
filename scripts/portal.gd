@@ -19,7 +19,7 @@ func _on_body_entered(body):
 #		PlayerVariables.add_score(250)
 		PlayerVariables.jumped_through()
 		
-		if time > 5:
+		if time > 45:
 			PlayerVariables.add_score(500)
 			get_tree().change_scene_to_file(next_level)
 		else:

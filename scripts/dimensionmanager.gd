@@ -3,10 +3,12 @@ extends Node2D
 
 @export var dimension_1_tile_map : TileMap
 @export var dimension_2_tile_map : TileMap
+@export var background : Node2D
 
 var dimension_1_active : bool = true
 var d1_fire_array : Array[Node]
 var d2_fire_array : Array[Node]
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,7 +25,7 @@ func swap_dimension():
 	dimension_1_active = !dimension_1_active
 	set_dimension_physic(dimension_1_active)
 	set_dimension_visibility(dimension_1_active)
-
+	
 func set_dimension_physic(value : bool):
 	dimension_1_tile_map.set_layer_enabled(0,value)
 	dimension_2_tile_map.set_layer_enabled(0,!value)

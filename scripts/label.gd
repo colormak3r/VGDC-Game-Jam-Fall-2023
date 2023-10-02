@@ -1,14 +1,16 @@
 extends Label
 
 @onready var label = $"."
-@onready var timer = $"../../Timer"
+@onready var player = $".."
+
 @export var score_time : float
+@onready var timer = $"../Timer"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
 	PlayerVariables.jumped_through()
-
+	
 func _format_seconds(time : float, use_milliseconds : bool) -> String:
 	var minutes := time / 60
 	var seconds := fmod(time, 60)

@@ -13,15 +13,17 @@ extends CharacterBody2D
 @export var dimension_1_tile_map : TileMap
 @export var dimension_2_tile_map : TileMap
 
-
+@export var timer : Timer
+@export var medieval_bg : TextureRect
+@export var scifi_bg : TextureRect
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var player = $"."
-@onready var timer = $"../Timer"
+
 @onready var jump_audio_stream_player = $"Jump AudioStreamPlayer"
 
-
+var background_active : bool = true
 var respawning : bool = false
 var lerp_weight : float = 0
 
@@ -39,7 +41,7 @@ func _ready():
 				fire.fire_triggered.connect(_on_fire_triggered)
 		
 	# Starting the countdown timer for the current level.
-	timer.start()
+#	timer.start()
 		
 	# Connect the player to the reset box
 	reset_box.resetbox_triggered.connect(_on_resetbox_triggered)
@@ -75,6 +77,8 @@ func _physics_process(delta):
 			velocity.y = jump_velocity
 			jump_audio_stream_player.play()
 		
+		if Input.is_action_just_pressed("swap"):
+			swap_background()
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		var direction = Input.get_axis("left", "right")
@@ -94,16 +98,23 @@ func _physics_process(delta):
 
 func _on_resetbox_triggered():
 	reset_spawn()
-
 func _on_fire_triggered() :
 	reset_spawn()
 
 func reset_spawn():
+	animated_sprite_2d.play("Spin")
 	respawning = true
 
 func _on_timer_timeout():
 	get_tree().change_scene_to_file("res://game_over.tscn")
 
-
+func get_timer():
+	return timer
 
 	
+func swap_background():
+	background_active = !background_active
+	set_background_visibility(background_active)
+func set_background_visibility(value : bool):
+	medieval_bg.visible = value
+	scifi_bg.visible = !value

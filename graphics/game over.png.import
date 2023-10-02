@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du8dr3c12yes"
-path="res://.godot/imported/lulu (3).png-9ec1b6ddcf46a93248906757f7aa06eb.ctex"
+uid="uid://ujh8krkopow"
+path="res://.godot/imported/game over.png-3e77f92c6f04404713708858ef94674f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/lulu (3).png"
-dest_files=["res://.godot/imported/lulu (3).png-9ec1b6ddcf46a93248906757f7aa06eb.ctex"]
+source_file="res://graphics/game over.png"
+dest_files=["res://.godot/imported/game over.png-3e77f92c6f04404713708858ef94674f.ctex"]
 
 [params]
 
