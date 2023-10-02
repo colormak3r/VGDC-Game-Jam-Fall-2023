@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cx4bamd4bxul7" path="res://props/barrel.tscn" id="10_okp1y"]
 [ext_resource type="PackedScene" uid="uid://bo7frhx3q3jsl" path="res://required_components/fire.tscn" id="11_tqole"]
 [ext_resource type="TileSet" uid="uid://10ojo1xlx1lm" path="res://tilesets/scifi.tres" id="12_i10n1"]
-[ext_resource type="PackedScene" uid="uid://dek2swps1gjd4" path="res://bone.tscn" id="13_iyhes"]
+[ext_resource type="PackedScene" path="res://bone.tscn" id="13_iyhes"]
 
 [node name="level_two" type="Node2D"]
 
