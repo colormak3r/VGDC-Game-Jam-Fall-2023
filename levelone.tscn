@@ -1,11 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://ckeretr8wrklo"]
+[gd_scene load_steps=14 format=3 uid="uid://ckeretr8wrklo"]
 
 [ext_resource type="PackedScene" uid="uid://bg5duujpvcsbp" path="res://player.tscn" id="1_h3l18"]
 [ext_resource type="Texture2D" uid="uid://dmfyy6ptsnlr8" path="res://graphics/ph_tiles.png" id="2_uasqq"]
 [ext_resource type="Script" path="res://DimensionManager.gd" id="2_yxbp4"]
 [ext_resource type="Texture2D" uid="uid://d1k2r5abcdu6w" path="res://graphics/tileset.PNG" id="4_122iq"]
+[ext_resource type="PackedScene" uid="uid://dnlajql4sm4c4" path="res://props/cart.tscn" id="5_5ovri"]
 [ext_resource type="PackedScene" uid="uid://b105lh8bok01d" path="res://Portal.tscn" id="5_jkgml"]
 [ext_resource type="PackedScene" uid="uid://bo7frhx3q3jsl" path="res://fire.tscn" id="5_t7r6o"]
+[ext_resource type="PackedScene" uid="uid://cx4bamd4bxul7" path="res://props/barrel.tscn" id="6_rv4yb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ox552"]
 size = Vector2(2000, 10)
@@ -98,7 +100,9 @@ sources/0 = SubResource("TileSetAtlasSource_fd8lj")
 
 [node name="LevelOne" type="Node2D"]
 
-[node name="Player" parent="." node_paths=PackedStringArray("dimension_1_tile_map", "dimension_2_tile_map") instance=ExtResource("1_h3l18")]
+[node name="Player" parent="." node_paths=PackedStringArray("spawn_point", "dimension_1_tile_map", "dimension_2_tile_map") instance=ExtResource("1_h3l18")]
+position = Vector2(0, -100)
+spawn_point = NodePath("../SpawnPoint")
 dimension_1_tile_map = NodePath("../DimensionManager/Dimension 1 TileMap")
 dimension_2_tile_map = NodePath("../DimensionManager/Dimension 2 TileMap")
 
@@ -128,10 +132,37 @@ position = Vector2(435, -64)
 [node name="Fire2" parent="DimensionManager/Dimension 1 TileMap" instance=ExtResource("5_t7r6o")]
 position = Vector2(38, 33)
 
+[node name="Barrel" parent="DimensionManager/Dimension 1 TileMap" instance=ExtResource("6_rv4yb")]
+
+[node name="Barrel2" parent="DimensionManager/Dimension 1 TileMap" instance=ExtResource("6_rv4yb")]
+position = Vector2(1033, 15)
+
+[node name="Cart" parent="DimensionManager/Dimension 1 TileMap" instance=ExtResource("5_5ovri")]
+position = Vector2(155, 1)
+
+[node name="Cart2" parent="DimensionManager/Dimension 1 TileMap" instance=ExtResource("5_5ovri")]
+position = Vector2(1022, 33)
+
 [node name="Dimension 2 TileMap" type="TileMap" parent="DimensionManager"]
 tile_set = SubResource("TileSet_m1tma")
 format = 2
 layer_0/tile_data = PackedInt32Array(262141, 0, 0, 327677, 0, 2, 262142, 65536, 0, 327678, 65536, 1, 393214, 0, 2, 262143, 65536, 0, 327679, 65536, 1, 393215, 65536, 2, 196608, 65536, 0, 262144, 65536, 1, 327680, 65536, 2, 196609, 65536, 0, 262145, 65536, 1, 327681, 131072, 2, 196610, 131072, 0, 262146, 131072, 2, -65521, 0, 0, 15, 0, 2, -65520, 65536, 0, 16, 65536, 1, 65552, 0, 2, -65519, 65536, 0, 17, 65536, 1, 65553, 65536, 2, -65518, 65536, 0, 18, 65536, 1, 65554, 65536, 2, -65517, 65536, 0, 19, 65536, 1, 65555, 131072, 2, -65516, 131072, 0, 20, 131072, 2, -196573, 0, 0, -131037, 0, 2, -196572, 65536, 0, -131036, 65536, 1, -65500, 0, 2, -196571, 65536, 0, -131035, 65536, 1, -65499, 65536, 2, -196570, 65536, 0, -131034, 65536, 1, -65498, 65536, 2, -196569, 65536, 0, -131033, 65536, 1, -65497, 131072, 2, -196568, 131072, 0, -131032, 131072, 2, 65589, 0, 0, 131125, 0, 2, 65590, 65536, 0, 131126, 65536, 1, 196662, 0, 2, 65591, 65536, 0, 131127, 65536, 1, 196663, 65536, 2, 65592, 65536, 0, 131128, 65536, 1, 196664, 65536, 2, 65593, 65536, 0, 131129, 65536, 1, 196665, 131072, 2, 65594, 131072, 0, 131130, 131072, 2)
+
+[node name="Cart" parent="DimensionManager/Dimension 2 TileMap" instance=ExtResource("5_5ovri")]
+position = Vector2(604, -63)
+scale = Vector2(-1, -1)
+
+[node name="Barrel" parent="DimensionManager/Dimension 2 TileMap" instance=ExtResource("6_rv4yb")]
+position = Vector2(878, 1)
+
+[node name="Barrel2" parent="DimensionManager/Dimension 2 TileMap" instance=ExtResource("6_rv4yb")]
+position = Vector2(888, -29)
+
+[node name="Barrel3" parent="DimensionManager/Dimension 2 TileMap" instance=ExtResource("6_rv4yb")]
+position = Vector2(906, 0)
+
+[node name="Barrel4" parent="DimensionManager/Dimension 2 TileMap" instance=ExtResource("6_rv4yb")]
+position = Vector2(260, -30)
 
 [node name="Portal" parent="." instance=ExtResource("5_jkgml")]
 position = Vector2(1140, 20)
