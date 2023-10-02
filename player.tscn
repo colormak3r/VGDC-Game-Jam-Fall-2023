@@ -48,14 +48,15 @@ sprite_frames = SubResource("SpriteFrames_lxluh")
 animation = &"Idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
 
 [node name="Label" type="Label" parent="."]
+
 z_index = 10
 offset_left = -180.0
 offset_top = -100.0
 offset_right = -140.0
 offset_bottom = -77.0
+
 script = ExtResource("3_yuqfr")
 
 [node name="Jump AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
