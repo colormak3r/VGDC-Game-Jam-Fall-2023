@@ -4,6 +4,9 @@ var player_score : float = 0
 var update_score : float = 0
 var through_portal : bool = false
 var time_checked : bool = false
+var music_progress = 0.0
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -24,7 +27,6 @@ func jumped_through():
 
 func get_jumped_through():
 	return through_portal
-
 
 
 

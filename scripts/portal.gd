@@ -2,6 +2,7 @@ extends Area2D
 
 @onready var timer = $"../Timer"
 @export var next_level : String
+@onready var audio_stream_player = $"../BG Music/AudioStreamPlayer"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,6 +22,7 @@ func _on_body_entered(body):
 		
 		if time > 45:
 			PlayerVariables.add_score(500)
+			PlayerVariables.music_progress = audio_stream_player.get_playback_position()
 			get_tree().change_scene_to_file(next_level)
 		else:
 			PlayerVariables.add_score(250)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://khkje40vl255"]
+[gd_scene load_steps=13 format=3 uid="uid://khkje40vl255"]
 
 [ext_resource type="PackedScene" uid="uid://bg5duujpvcsbp" path="res://player.tscn" id="1_it41e"]
 [ext_resource type="PackedScene" uid="uid://dtwnsdcfwsxsa" path="res://required_components/reset_box.tscn" id="2_2m1to"]
@@ -9,7 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://b105lh8bok01d" path="res://required_components/portal.tscn" id="7_ai88q"]
 [ext_resource type="PackedScene" uid="uid://beixajgn70rx4" path="res://required_components/timer.tscn" id="7_upn00"]
 [ext_resource type="PackedScene" uid="uid://dmvwvpiveld2x" path="res://required_components/center_of_map.tscn" id="8_udkvf"]
-[ext_resource type="PackedScene" uid="uid://b7j5hxbyoqco1" path="res://bg_music.tscn" id="10_5pj3f"]
+[ext_resource type="Script" path="res://levels/bg_music.gd" id="10_hosw8"]
+[ext_resource type="AudioStream" uid="uid://d05kg7ivnieh5" path="res://audio/Ride_of_the_Valkyries_by_Wagner.mp3" id="11_re3xr"]
 [ext_resource type="PackedScene" uid="uid://dek2swps1gjd4" path="res://bone.tscn" id="12_1drg0"]
 
 [node name="Tutorial" type="Node2D"]
@@ -53,8 +54,11 @@ next_level = "res://levels/level_one.tscn"
 [node name="Center of Map" parent="." instance=ExtResource("8_udkvf")]
 position = Vector2(150, 0)
 
-[node name="BG Music" parent="." instance=ExtResource("10_5pj3f")]
-script = null
+[node name="BG Music" type="Node2D" parent="."]
+script = ExtResource("10_hosw8")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BG Music"]
+stream = ExtResource("11_re3xr")
 
 [node name="BoneArea" parent="." instance=ExtResource("12_1drg0")]
 position = Vector2(-69, 93)

@@ -39,7 +39,7 @@ func _ready():
 		for fire in dimension_2_tile_map.get_children(): 
 			if fire.has_signal("fire_triggered"):
 				fire.fire_triggered.connect(_on_fire_triggered)
-		
+	BgMusic.play_music()
 	# Starting the countdown timer for the current level.
 #	timer.start()
 		
@@ -69,6 +69,7 @@ func _physics_process(delta):
 		
 		if is_on_floor():
 			animated_sprite_2d.play("Idle")
+		
 		else :
 			animated_sprite_2d.play("Jump")
 		
@@ -82,7 +83,8 @@ func _physics_process(delta):
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		var direction = Input.get_axis("left", "right")
-		
+		if is_on_floor() and velocity.x > 0:
+			animated_sprite_2d.play("Walk")
 		# Flip sprite by direction
 		if direction != 0 :
 			animated_sprite_2d.flip_h = direction > 0

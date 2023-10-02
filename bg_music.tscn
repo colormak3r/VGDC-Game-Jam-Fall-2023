@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7j5hxbyoqco1"]
+
+[ext_resource type="Script" path="res://levels/bg_music.gd" id="1_aug7x"]
+[ext_resource type="AudioStream" uid="uid://d05kg7ivnieh5" path="res://audio/Ride_of_the_Valkyries_by_Wagner.mp3" id="2_02jdm"]
+
+[node name="BG Music" type="Node"]
+script = ExtResource("1_aug7x")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_02jdm")
