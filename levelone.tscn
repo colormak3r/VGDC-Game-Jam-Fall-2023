@@ -1,107 +1,27 @@
 [gd_scene load_steps=13 format=3 uid="uid://ckeretr8wrklo"]
 
 [ext_resource type="PackedScene" uid="uid://bg5duujpvcsbp" path="res://player.tscn" id="1_h3l18"]
-[ext_resource type="Texture2D" uid="uid://dmfyy6ptsnlr8" path="res://graphics/ph_tiles.png" id="2_uasqq"]
-[ext_resource type="Script" path="res://DimensionManager.gd" id="2_yxbp4"]
-[ext_resource type="Script" path="res://Label.gd" id="3_fvdx1"]
-[ext_resource type="Texture2D" uid="uid://d1k2r5abcdu6w" path="res://graphics/tileset.PNG" id="4_122iq"]
-[ext_resource type="PackedScene" uid="uid://b105lh8bok01d" path="res://Portal.tscn" id="5_jkgml"]
-[ext_resource type="PackedScene" uid="uid://bo7frhx3q3jsl" path="res://fire.tscn" id="5_t7r6o"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ox552"]
-size = Vector2(2000, 10)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qiinp"]
-texture = ExtResource("2_uasqq")
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:1/0 = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-0:2/0 = 0
-0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:2/0/physics_layer_0/angular_velocity = 0.0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:2/0 = 0
-1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:2/0/physics_layer_0/angular_velocity = 0.0
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:2/0 = 0
-2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:2/0/physics_layer_0/angular_velocity = 0.0
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-
-[sub_resource type="TileSet" id="TileSet_qt8a7"]
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_qiinp")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fd8lj"]
-texture = ExtResource("4_122iq")
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:1/0 = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-0:2/0 = 0
-0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:2/0/physics_layer_0/angular_velocity = 0.0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:2/0 = 0
-1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:2/0/physics_layer_0/angular_velocity = 0.0
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:2/0 = 0
-2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:2/0/physics_layer_0/angular_velocity = 0.0
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-
-[sub_resource type="TileSet" id="TileSet_m1tma"]
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_fd8lj")
+[ext_resource type="Script" path="res://dimensionmanager.gd" id="2_2sktd"]
+[ext_resource type="PackedScene" uid="uid://dtwnsdcfwsxsa" path="res://required_components/reset_box.tscn" id="2_coem5"]
+[ext_resource type="PackedScene" uid="uid://b8fgkkdilihop" path="res://required_components/spawn_point.tscn" id="3_2gaql"]
+[ext_resource type="TileSet" uid="uid://d0u5xc7b41y80" path="res://tilesets/placeholder.tres" id="5_2tvj8"]
+[ext_resource type="PackedScene" uid="uid://dnlajql4sm4c4" path="res://props/cart.tscn" id="5_5ovri"]
+[ext_resource type="PackedScene" uid="uid://b105lh8bok01d" path="res://required_components/portal.tscn" id="5_jkgml"]
+[ext_resource type="PackedScene" uid="uid://bo7frhx3q3jsl" path="res://required_components/fire.tscn" id="5_t7r6o"]
+[ext_resource type="PackedScene" uid="uid://cx4bamd4bxul7" path="res://props/barrel.tscn" id="6_rv4yb"]
+[ext_resource type="TileSet" uid="uid://b2i8b24hw8ie7" path="res://tilesets/medieval.tres" id="9_3p4hf"]
+[ext_resource type="PackedScene" uid="uid://dmvwvpiveld2x" path="res://required_components/center_of_map.tscn" id="11_jwuha"]
 
 [node name="LevelOne" type="Node2D"]
 
-[node name="Player" parent="." node_paths=PackedStringArray("dimension_1_tile_map", "dimension_2_tile_map") instance=ExtResource("1_h3l18")]
-dimension_1_tile_map = NodePath("../DimensionManager/Dimension 1 TileMap")
-dimension_2_tile_map = NodePath("../DimensionManager/Dimension 2 TileMap")
+[node name="Player" parent="." node_paths=PackedStringArray("spawn_point", "reset_box", "center_of_map", "dimension_1_tile_map", "dimension_2_tile_map") instance=ExtResource("1_h3l18")]
+position = Vector2(0, -100)
+spawn_point = NodePath("../Spawn Point")
+reset_box = NodePath("../Reset Box")
+center_of_map = NodePath("")
+dimension_1_tile_map = NodePath("../Dimension Manager/Dimension 1 TileMap")
+dimension_2_tile_map = NodePath("../Dimension Manager/Dimension 2 TileMap")
 
 [node name="Label" type="Label" parent="Player"]
 offset_left = -180.0
@@ -110,43 +30,62 @@ offset_right = -140.0
 offset_bottom = -77.0
 script = ExtResource("3_fvdx1")
 score_time = 60.0
+[node name="Reset Box" parent="." instance=ExtResource("2_coem5")]
+position = Vector2(530, 200)
+scale = Vector2(1, 1e-05)
 
-[node name="ResetBox" type="Area2D" parent="."]
-position = Vector2(0, 200)
+[node name="Spawn Point" parent="." instance=ExtResource("3_2gaql")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ResetBox"]
-position = Vector2(530, 0)
-shape = SubResource("RectangleShape2D_ox552")
-
-[node name="SpawnPoint" type="Node2D" parent="."]
-position = Vector2(0, -100)
-
-[node name="DimensionManager" type="Node2D" parent="." node_paths=PackedStringArray("dimension_1_tile_map", "dimension_2_tile_map")]
-script = ExtResource("2_yxbp4")
+[node name="Dimension Manager" type="Node2D" parent="." node_paths=PackedStringArray("dimension_1_tile_map", "dimension_2_tile_map")]
+script = ExtResource("2_2sktd")
 dimension_1_tile_map = NodePath("Dimension 1 TileMap")
 dimension_2_tile_map = NodePath("Dimension 2 TileMap")
 
-[node name="Dimension 1 TileMap" type="TileMap" parent="DimensionManager"]
-tile_set = SubResource("TileSet_qt8a7")
+[node name="Dimension 1 TileMap" type="TileMap" parent="Dimension Manager"]
+tile_set = ExtResource("5_2tvj8")
 format = 2
 layer_0/tile_data = PackedInt32Array(196610, 131072, 0, 196609, 65536, 0, 196608, 65536, 0, 262143, 65536, 0, 262142, 65536, 0, 262141, 0, 0, 327677, 0, 2, 327678, 65536, 1, 327679, 65536, 1, 262144, 65536, 1, 262145, 65536, 1, 262146, 131072, 2, 393214, 0, 2, 393215, 65536, 2, 327680, 65536, 2, 327681, 131072, 2, 65542, 0, 0, 131078, 0, 2, 65543, 65536, 0, 131079, 65536, 1, 196615, 0, 2, 65544, 65536, 0, 131080, 65536, 1, 196616, 65536, 2, 65545, 65536, 0, 131081, 65536, 1, 196617, 65536, 2, 65546, 65536, 0, 131082, 65536, 1, 196618, 131072, 2, 65547, 131072, 0, 131083, 131072, 2, -196584, 0, 0, -131048, 0, 2, -196583, 65536, 0, -131047, 65536, 1, -65511, 0, 2, -196582, 65536, 0, -131046, 65536, 1, -65510, 65536, 2, -196581, 65536, 0, -131045, 65536, 1, -65509, 65536, 2, -196580, 65536, 0, -131044, 65536, 1, -65508, 131072, 2, -196579, 131072, 0, -131043, 131072, 2, -65492, 0, 0, 44, 0, 2, -65491, 65536, 0, 45, 65536, 1, 65581, 0, 2, -65490, 65536, 0, 46, 65536, 1, 65582, 65536, 2, -65489, 65536, 0, 47, 65536, 1, 65583, 65536, 2, -65488, 65536, 0, 48, 65536, 1, 65584, 131072, 2, -65487, 131072, 0, 49, 131072, 2, 196670, 0, 0, 262206, 0, 2, 196671, 65536, 0, 262207, 65536, 1, 327743, 0, 2, 196672, 65536, 0, 262208, 65536, 1, 327744, 65536, 2, 196673, 65536, 0, 262209, 65536, 1, 327745, 65536, 2, 196674, 65536, 0, 262210, 65536, 1, 327746, 131072, 2, 196675, 131072, 0, 262211, 131072, 2)
 
-[node name="Fire" parent="DimensionManager/Dimension 1 TileMap" instance=ExtResource("5_t7r6o")]
+[node name="Fire" parent="Dimension Manager/Dimension 1 TileMap" instance=ExtResource("5_t7r6o")]
 position = Vector2(435, -64)
 
-[node name="Fire2" parent="DimensionManager/Dimension 1 TileMap" instance=ExtResource("5_t7r6o")]
+[node name="Fire2" parent="Dimension Manager/Dimension 1 TileMap" instance=ExtResource("5_t7r6o")]
 position = Vector2(38, 33)
 
-[node name="Dimension 2 TileMap" type="TileMap" parent="DimensionManager"]
-tile_set = SubResource("TileSet_m1tma")
+[node name="Barrel" parent="Dimension Manager/Dimension 1 TileMap" instance=ExtResource("6_rv4yb")]
+
+[node name="Barrel2" parent="Dimension Manager/Dimension 1 TileMap" instance=ExtResource("6_rv4yb")]
+position = Vector2(1033, 15)
+
+[node name="Cart" parent="Dimension Manager/Dimension 1 TileMap" instance=ExtResource("5_5ovri")]
+position = Vector2(155, 1)
+
+[node name="Cart2" parent="Dimension Manager/Dimension 1 TileMap" instance=ExtResource("5_5ovri")]
+position = Vector2(1022, 33)
+
+[node name="Dimension 2 TileMap" type="TileMap" parent="Dimension Manager"]
+tile_set = ExtResource("9_3p4hf")
 format = 2
 layer_0/tile_data = PackedInt32Array(262141, 0, 0, 327677, 0, 2, 262142, 65536, 0, 327678, 65536, 1, 393214, 0, 2, 262143, 65536, 0, 327679, 65536, 1, 393215, 65536, 2, 196608, 65536, 0, 262144, 65536, 1, 327680, 65536, 2, 196609, 65536, 0, 262145, 65536, 1, 327681, 131072, 2, 196610, 131072, 0, 262146, 131072, 2, -65521, 0, 0, 15, 0, 2, -65520, 65536, 0, 16, 65536, 1, 65552, 0, 2, -65519, 65536, 0, 17, 65536, 1, 65553, 65536, 2, -65518, 65536, 0, 18, 65536, 1, 65554, 65536, 2, -65517, 65536, 0, 19, 65536, 1, 65555, 131072, 2, -65516, 131072, 0, 20, 131072, 2, -196573, 0, 0, -131037, 0, 2, -196572, 65536, 0, -131036, 65536, 1, -65500, 0, 2, -196571, 65536, 0, -131035, 65536, 1, -65499, 65536, 2, -196570, 65536, 0, -131034, 65536, 1, -65498, 65536, 2, -196569, 65536, 0, -131033, 65536, 1, -65497, 131072, 2, -196568, 131072, 0, -131032, 131072, 2, 65589, 0, 0, 131125, 0, 2, 65590, 65536, 0, 131126, 65536, 1, 196662, 0, 2, 65591, 65536, 0, 131127, 65536, 1, 196663, 65536, 2, 65592, 65536, 0, 131128, 65536, 1, 196664, 65536, 2, 65593, 65536, 0, 131129, 65536, 1, 196665, 131072, 2, 65594, 131072, 0, 131130, 131072, 2)
 
+[node name="Cart" parent="Dimension Manager/Dimension 2 TileMap" instance=ExtResource("5_5ovri")]
+position = Vector2(604, -63)
+scale = Vector2(-1, -1)
+
+[node name="Barrel" parent="Dimension Manager/Dimension 2 TileMap" instance=ExtResource("6_rv4yb")]
+position = Vector2(878, 1)
+
+[node name="Barrel2" parent="Dimension Manager/Dimension 2 TileMap" instance=ExtResource("6_rv4yb")]
+position = Vector2(888, -29)
+
+[node name="Barrel3" parent="Dimension Manager/Dimension 2 TileMap" instance=ExtResource("6_rv4yb")]
+position = Vector2(906, 0)
+
+[node name="Barrel4" parent="Dimension Manager/Dimension 2 TileMap" instance=ExtResource("6_rv4yb")]
+position = Vector2(260, -30)
+
 [node name="Portal" parent="." instance=ExtResource("5_jkgml")]
 position = Vector2(1140, 20)
-
-[node name="Area2D" parent="." instance=ExtResource("5_jkgml")]
-position = Vector2(-62, 24)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 120.0
@@ -154,3 +93,6 @@ one_shot = true
 
 [connection signal="body_entered" from="ResetBox" to="Player" method="_on_reset_box_body_entered"]
 [connection signal="timeout" from="Timer" to="Player" method="_on_timer_timeout"]
+
+[node name="Center of Map" parent="." instance=ExtResource("11_jwuha")]
+position = Vector2(530, 0)

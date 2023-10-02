@@ -2,18 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-
-uid="uid://crdwjed6jlurk"
-
-path="res://.godot/imported/robot.png-ac30017f8a4acfdd24f017f88f666243.ctex"
+uid="uid://cfiu4kw4fjv57"
+path="res://.godot/imported/Cart.png-90d54ad2a522fc89cdd7b88670ba8666.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/robot.png"
-dest_files=["res://.godot/imported/robot.png-ac30017f8a4acfdd24f017f88f666243.ctex"]
+source_file="res://graphics/Cart.png"
+dest_files=["res://.godot/imported/Cart.png-90d54ad2a522fc89cdd7b88670ba8666.ctex"]
 
 [params]
 

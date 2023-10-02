@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://dmvwvpiveld2x"]
+
+[node name="Center of Map" type="Node2D"]
+scale = Vector2(1e-05, 1e-05)
