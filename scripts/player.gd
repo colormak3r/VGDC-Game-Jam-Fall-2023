@@ -24,17 +24,20 @@ var lerp_weight : float = 0
 
 func _ready():
 	# Connect the player to dimention 1 fires
-	for fire in dimension_1_tile_map.get_children(): 
-		if fire.has_signal("fire_triggered"):
-			fire.fire_triggered.connect(_on_fire_triggered)
+	if dimension_1_tile_map.get_children().size() > 0 :
+		for fire in dimension_1_tile_map.get_children(): 
+			if fire.has_signal("fire_triggered"):
+				fire.fire_triggered.connect(_on_fire_triggered)
 		
 	# Connect the player to dimention 2 fires
-	for fire in dimension_2_tile_map.get_children(): 
-
-		if fire.has_signal("fire_triggered"):
-			fire.fire_triggered.connect(_on_fire_triggered)
-  # Starting the countdown timer for the current level.
+	if dimension_2_tile_map.get_children().size() > 0 :
+		for fire in dimension_2_tile_map.get_children(): 
+			if fire.has_signal("fire_triggered"):
+				fire.fire_triggered.connect(_on_fire_triggered)
+		
+	# Starting the countdown timer for the current level.
 	timer.start()
+		
 	# Connect the player to the reset box
 	reset_box.resetbox_triggered.connect(_on_resetbox_triggered)
 

@@ -19,9 +19,3 @@ func _format_seconds(time : float, use_milliseconds : bool) -> String:
 
 func _process(delta):
 	label.text = "Time: " + _format_seconds(timer.time_left, true) + " Score: " +str(PlayerVariables.get_score())
-	
-		
-
-
-
-
