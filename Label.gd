@@ -1,23 +1,27 @@
 extends Label
 
 @onready var label = $"."
-@onready var timer = $"../Timer"
+@onready var timer = $"../../Timer"
+@export var score_time : float
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	timer.start()
 	
+	PlayerVariables.jumped_through()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _format_seconds(time : float, use_milliseconds : bool) -> String:
+	var minutes := time / 60
+	var seconds := fmod(time, 60)
+	if not use_milliseconds:
+		return "%02d:%02d" % [minutes, seconds]
+	var milliseconds := fmod(time, 1) * 100
+	return "%02d:%02d:%02d" % [minutes, seconds, milliseconds]
+
 func _process(delta):
-	var time : float = timer.get_time_left()
-	var minutes : float = floor(time / 60)
-	var seconds : float = fmod(time, 60)
-	if seconds >= 59:
-		minutes += 1
-	if ceil(seconds) == 60:
-#		seconds = 0.0
-		label.text = "Time: " + str(minutes) + ":00"
-	else:
-		label.text = "Time: " + str(minutes) + ":"+ str(roundf(seconds))
+	label.text = "Time: " + _format_seconds(timer.time_left, true) + " Score: " +str(PlayerVariables.get_score())
 	
+		
+
+
+
+

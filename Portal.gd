@@ -1,5 +1,7 @@
 extends Area2D
 
+@onready var timer = $"../Timer"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,5 +15,15 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
-		get_tree().change_scene_to_file("res://level_two.tscn")
+		var time : float = timer.get_time_left()
+#		PlayerVariables.add_score(250)
+		PlayerVariables.jumped_through()
+		print(time)
+		if time > 5:
+			PlayerVariables.add_score(500)
+			get_tree().change_scene_to_file("res://level_two.tscn")
+		else:
+			PlayerVariables.add_score(250)
+			get_tree().change_scene_to_file("res://level_two.tscn")
+
 		

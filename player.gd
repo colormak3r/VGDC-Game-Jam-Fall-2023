@@ -12,12 +12,14 @@ extends CharacterBody2D
 @onready var spawn_point = $"../SpawnPoint"
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var player = $"."
+@onready var timer = $"../Timer"
 
 func _ready():
 	for fire in dimension_1_tile_map.get_children(): 
 		fire.fire_triggered.connect(_on_fire_triggered)
 	for fire in dimension_2_tile_map.get_children(): 
 		fire.fire_triggered.connect(_on_fire_triggered)
+	timer.start()
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -25,7 +27,7 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	
 	if is_on_floor():
-		animated_sprite_2d.play("Idle")
+		animated_sprite_2d.play("Walk")
 	else :
 		animated_sprite_2d.play("Jump")
 	
@@ -36,16 +38,17 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("left", "right")
-	
+
 	# Flip sprite by direction
 	if direction != 0 :
 		animated_sprite_2d.flip_h = direction > 0
-	
+		
 	if direction:
 		velocity.x = direction * speed
+		
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
-
+	
 	move_and_slide()
 	
 
@@ -56,5 +59,10 @@ func _on_fire_triggered() :
 	reset_spawn()
 
 func reset_spawn():
+	
 	player.position = spawn_point.position
 
+
+
+func _on_timer_timeout():
+	get_tree().change_scene_to_file("res://game_over.tscn")

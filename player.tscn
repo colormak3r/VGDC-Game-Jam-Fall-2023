@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bg5duujpvcsbp"]
+[gd_scene load_steps=11 format=3 uid="uid://bg5duujpvcsbp"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_uopcw"]
-[ext_resource type="PackedScene" uid="uid://nbnlv7de2vxv" path="res://TimerLabel.tscn" id="2_dnc1h"]
 [ext_resource type="Texture2D" uid="uid://ddb5b6lmhgike" path="res://graphics/lulu.png" id="2_qasda"]
+[ext_resource type="Texture2D" uid="uid://du8dr3c12yes" path="res://graphics/lulu (3).png" id="3_bwl1c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oviij"]
 
@@ -12,6 +12,18 @@ region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gxijl"]
 atlas = ExtResource("2_qasda")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccleq"]
+atlas = ExtResource("3_bwl1c")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfnam"]
+atlas = ExtResource("3_bwl1c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mnav"]
+atlas = ExtResource("3_bwl1c")
 region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lxluh"]
@@ -31,6 +43,20 @@ animations = [{
 "loop": true,
 "name": &"Jump",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccleq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfnam")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mnav")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
 }]
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
@@ -44,13 +70,7 @@ shape = SubResource("CircleShape2D_oviij")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lxluh")
-animation = &"Idle"
+animation = &"Walk"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
-
-[node name="Control" parent="Camera2D" instance=ExtResource("2_dnc1h")]
-offset_left = -182.0
-offset_top = -110.0
-offset_right = -182.0
-offset_bottom = -110.0
