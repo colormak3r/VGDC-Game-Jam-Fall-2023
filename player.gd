@@ -5,6 +5,10 @@ extends CharacterBody2D
 @export var gravity : float = 250
 
 @export var spawn_point : Node2D
+@export var reset_box : Node2D
+
+@export var center_of_map : Node2D
+@export var max_distance_from_center :  float = 10000000
 
 @export var dimension_1_tile_map : TileMap
 @export var dimension_2_tile_map : TileMap
@@ -18,12 +22,18 @@ var respawning : bool = false
 var lerp_weight : float = 0
 
 func _ready():
+	# Connect the player to dimention 1 fires
 	for fire in dimension_1_tile_map.get_children(): 
 		if fire.has_signal("fire_triggered"):
 			fire.fire_triggered.connect(_on_fire_triggered)
+		
+	# Connect the player to dimention 2 fires
 	for fire in dimension_2_tile_map.get_children(): 
 		if fire.has_signal("fire_triggered"):
 			fire.fire_triggered.connect(_on_fire_triggered)
+		
+	# Connect the player to the reset box
+	reset_box.resetbox_triggered.connect(_on_resetbox_triggered)
 
 func _physics_process(delta):
 	if respawning:
@@ -37,6 +47,11 @@ func _physics_process(delta):
 			lerp_weight = 0
 			respawning = false
 	else :
+		if player.position.distance_squared_to(spawn_point.position) > 10000000 :
+			print_debug(player.position.distance_squared_to(spawn_point.position))
+			reset_spawn()
+			pass
+		
 		# Add the gravity.
 		if not is_on_floor():
 			velocity.y += gravity * delta
@@ -66,7 +81,7 @@ func _physics_process(delta):
 		move_and_slide()
 	
 
-func _on_reset_box_body_entered(body):
+func _on_resetbox_triggered():
 	reset_spawn()
 
 func _on_fire_triggered() :
