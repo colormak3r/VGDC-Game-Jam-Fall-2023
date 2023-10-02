@@ -1,75 +1,155 @@
-[gd_scene load_steps=7 format=3 uid="uid://0kv8u4ni1osv"]
+[gd_scene load_steps=13 format=3 uid="uid://dk41bx1ck00ag"]
 
-[ext_resource type="Texture2D" uid="uid://d1k2r5abcdu6w" path="res://graphics/tileset.PNG" id="1_8ndw8"]
-[ext_resource type="PackedScene" uid="uid://bg5duujpvcsbp" path="res://player.tscn" id="2_y3gmx"]
-[ext_resource type="Script" path="res://scripts/label.gd" id="3_3o7wc"]
-[ext_resource type="PackedScene" uid="uid://b105lh8bok01d" path="res://required_components/portal.tscn" id="3_6vj78"]
+[ext_resource type="PackedScene" uid="uid://bg5duujpvcsbp" path="res://player.tscn" id="1_7f08k"]
+[ext_resource type="PackedScene" uid="uid://dmvwvpiveld2x" path="res://required_components/center_of_map.tscn" id="2_hl08y"]
+[ext_resource type="PackedScene" uid="uid://b8fgkkdilihop" path="res://required_components/spawn_point.tscn" id="3_exdve"]
+[ext_resource type="PackedScene" uid="uid://dtwnsdcfwsxsa" path="res://required_components/reset_box.tscn" id="4_p86mx"]
+[ext_resource type="PackedScene" uid="uid://b105lh8bok01d" path="res://required_components/portal.tscn" id="5_dvhha"]
+[ext_resource type="PackedScene" uid="uid://beixajgn70rx4" path="res://required_components/timer.tscn" id="6_wu1eb"]
+[ext_resource type="PackedScene" uid="uid://ck5dy5ui1hhi3" path="res://required_components/dimension_manager.tscn" id="7_xqhn6"]
+[ext_resource type="TileSet" uid="uid://b2i8b24hw8ie7" path="res://tilesets/medieval.tres" id="8_2ifnu"]
+[ext_resource type="PackedScene" uid="uid://dnlajql4sm4c4" path="res://props/cart.tscn" id="9_q70e8"]
+[ext_resource type="PackedScene" uid="uid://cx4bamd4bxul7" path="res://props/barrel.tscn" id="10_okp1y"]
+[ext_resource type="TileSet" uid="uid://d0u5xc7b41y80" path="res://tilesets/placeholder.tres" id="11_bdxak"]
+[ext_resource type="PackedScene" uid="uid://bo7frhx3q3jsl" path="res://required_components/fire.tscn" id="11_tqole"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_upuxp"]
-texture = ExtResource("1_8ndw8")
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:1/0 = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-0:2/0 = 0
-0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:2/0/physics_layer_0/angular_velocity = 0.0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:2/0 = 0
-1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:2/0/physics_layer_0/angular_velocity = 0.0
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:2/0 = 0
-2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:2/0/physics_layer_0/angular_velocity = 0.0
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+[node name="level_two" type="Node2D"]
 
-[sub_resource type="TileSet" id="TileSet_qk644"]
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_upuxp")
+[node name="Player" parent="." node_paths=PackedStringArray("spawn_point", "reset_box", "center_of_map", "dimension_1_tile_map", "dimension_2_tile_map") instance=ExtResource("1_7f08k")]
+spawn_point = NodePath("../Spawn Point")
+reset_box = NodePath("../Reset Box")
+center_of_map = NodePath("../Center of Map")
+dimension_1_tile_map = NodePath("../Dimension Manager/Medieval TileMap")
+dimension_2_tile_map = NodePath("../Dimension Manager/Scifi TileMap")
 
-[node name="LevelTwo" type="Node2D"]
+[node name="Center of Map" parent="." instance=ExtResource("2_hl08y")]
+position = Vector2(192.245, 0)
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_qk644")
+[node name="Spawn Point" parent="." instance=ExtResource("3_exdve")]
+position = Vector2(0, 0)
+
+[node name="Reset Box" parent="." instance=ExtResource("4_p86mx")]
+
+[node name="Portal" parent="." instance=ExtResource("5_dvhha")]
+position = Vector2(400, 19)
+next_level = "res://levels/level_three.tscn"
+
+[node name="Timer" parent="." instance=ExtResource("6_wu1eb")]
+
+[node name="Dimension Manager" parent="." node_paths=PackedStringArray("dimension_1_tile_map", "dimension_2_tile_map") instance=ExtResource("7_xqhn6")]
+dimension_1_tile_map = NodePath("Medieval TileMap")
+dimension_2_tile_map = NodePath("Scifi TileMap")
+
+[node name="Medieval TileMap" type="TileMap" parent="Dimension Manager"]
+tile_set = ExtResource("8_2ifnu")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 65536, 0, 2, 65536, 0, 3, 65536, 0, 4, 65536, 0, 5, 65536, 0, 6, 65536, 0, 7, 65536, 0, 8, 65536, 0, 9, 65536, 0, 10, 65536, 0, 11, 65536, 0, 12, 65536, 0, 13, 65536, 0, 14, 65536, 0, 15, 65536, 0, 16, 65536, 0, 17, 65536, 0, 18, 65536, 0, 19, 65536, 0, 20, 65536, 0, 65556, 65536, 1, 21, 65536, 0, 22, 131072, 0, 65536, 0, 1, 65537, 65536, 1, 65538, 65536, 1, 65539, 65536, 1, 65540, 65536, 1, 65541, 65536, 1, 65542, 65536, 1, 65543, 65536, 1, 65544, 65536, 1, 65545, 65536, 1, 65546, 65536, 1, 65547, 65536, 1, 65548, 65536, 1, 65549, 65536, 1, 65550, 65536, 1, 65551, 65536, 1, 65552, 65536, 1, 65553, 65536, 1, 65554, 65536, 1, 65555, 65536, 1, 65557, 65536, 1, 65558, 131072, 1, 131072, 0, 2, 131073, 65536, 2, 131074, 65536, 2, 131075, 65536, 2, 131076, 65536, 2, 131077, 65536, 2, 131078, 65536, 2, 131079, 65536, 2, 131080, 65536, 2, 131081, 65536, 2, 131082, 65536, 2, 131083, 65536, 2, 131084, 65536, 2, 131085, 65536, 2, 131086, 65536, 2, 131087, 65536, 2, 131088, 65536, 2, 131089, 65536, 2, 131090, 65536, 2, 131091, 65536, 2, 131092, 65536, 2, 131093, 65536, 2, 131094, 131072, 2)
+layer_0/tile_data = PackedInt32Array(327677, 0, 1, 327688, 65536, 2, 327689, 65536, 2, 327690, 65536, 2, 262159, 65536, 1, 327695, 65536, 2, 262160, 65536, 1, 262162, 65536, 1, 196627, 65536, 0, 327699, 65536, 2, 196629, 65536, 0, 262141, 0, 0, 393213, 0, 2, 262142, 65536, 0, 327678, 65536, 1, 393214, 65536, 2, 262143, 65536, 0, 327679, 65536, 1, 393215, 65536, 2, 196608, 65536, 0, 262144, 65536, 1, 327680, 65536, 2, 196609, 65536, 0, 262145, 65536, 1, 327681, 65536, 2, 196610, 65536, 0, 262146, 65536, 1, 327682, 65536, 2, 196611, 65536, 0, 262147, 65536, 1, 327683, 65536, 2, 196612, 65536, 0, 262148, 65536, 1, 327684, 65536, 2, 196613, 65536, 0, 262149, 65536, 1, 327685, 65536, 2, 196614, 65536, 0, 262150, 65536, 1, 327686, 65536, 2, 196615, 65536, 0, 262151, 65536, 1, 327687, 65536, 2, 196616, 65536, 0, 262152, 65536, 1, 196617, 65536, 0, 262153, 65536, 1, 196618, 65536, 0, 262154, 65536, 1, 196619, 65536, 0, 262155, 65536, 1, 327691, 65536, 2, 196620, 65536, 0, 262156, 65536, 1, 327692, 65536, 2, 196621, 65536, 0, 262157, 65536, 1, 327693, 65536, 2, 196622, 65536, 0, 262158, 65536, 1, 327694, 65536, 2, 196623, 65536, 0, 196624, 65536, 0, 327696, 65536, 2, 196625, 65536, 0, 262161, 65536, 1, 327697, 65536, 2, 196626, 65536, 0, 327698, 65536, 2, 262163, 65536, 1, 196628, 65536, 0, 262164, 65536, 1, 327700, 65536, 2, 262165, 65536, 1, 327701, 65536, 2, 196630, 65536, 0, 262166, 65536, 1, 327702, 65536, 2, 196631, 65536, 0, 262167, 65536, 1, 327703, 65536, 2, 196632, 65536, 0, 262168, 65536, 1, 327704, 65536, 2, 196633, 65536, 0, 262169, 65536, 1, 327705, 65536, 2, 196634, 65536, 0, 262170, 65536, 1, 327706, 65536, 2, 196635, 131072, 0, 262171, 131072, 1, 327707, 131072, 2)
 
-[node name="Player" parent="." node_paths=PackedStringArray("dimension_1_tile_map", "dimension_2_tile_map") instance=ExtResource("2_y3gmx")]
-position = Vector2(74, -50)
-dimension_1_tile_map = NodePath("../TileMap")
-dimension_2_tile_map = NodePath("../TileMap")
+[node name="Cart" parent="Dimension Manager/Medieval TileMap" instance=ExtResource("9_q70e8")]
+position = Vector2(98, 33)
 
-[node name="Label" type="Label" parent="Player"]
-offset_left = -180.0
-offset_top = -100.0
-offset_right = -140.0
-offset_bottom = -77.0
-script = ExtResource("3_3o7wc")
+[node name="Barrel" parent="Dimension Manager/Medieval TileMap" instance=ExtResource("10_okp1y")]
 
-[node name="Area2D" parent="." instance=ExtResource("3_6vj78")]
-position = Vector2(185, -40)
+[node name="Barrel2" parent="Dimension Manager/Medieval TileMap" instance=ExtResource("10_okp1y")]
+position = Vector2(163, 31)
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 120.0
-one_shot = true
+[node name="Barrel3" parent="Dimension Manager/Medieval TileMap" instance=ExtResource("10_okp1y")]
+position = Vector2(192, 30)
+
+[node name="Barrel4" parent="Dimension Manager/Medieval TileMap" instance=ExtResource("10_okp1y")]
+position = Vector2(276, 30)
+
+[node name="Fire" parent="Dimension Manager/Medieval TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(313, 32)
+
+[node name="Fire2" parent="Dimension Manager/Medieval TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(74, 32)
+
+[node name="Fire3" parent="Dimension Manager/Medieval TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(102, 32)
+
+[node name="Fire4" parent="Dimension Manager/Medieval TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(127, 32)
+
+[node name="Fire5" parent="Dimension Manager/Medieval TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(154, 32)
+
+[node name="Fire6" parent="Dimension Manager/Medieval TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(181, 32)
+
+[node name="Fire7" parent="Dimension Manager/Medieval TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(206, 32)
+
+[node name="Fire8" parent="Dimension Manager/Medieval TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(233, 32)
+
+[node name="Fire9" parent="Dimension Manager/Medieval TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(260, 32)
+
+[node name="Fire10" parent="Dimension Manager/Medieval TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(286, 32)
+
+[node name="Fire11" parent="Dimension Manager/Medieval TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(313, 32)
+
+[node name="Fire12" parent="Dimension Manager/Medieval TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(74, 32)
+
+[node name="Fire13" parent="Dimension Manager/Medieval TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(102, 32)
+
+[node name="Fire14" parent="Dimension Manager/Medieval TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(127, 32)
+
+[node name="Fire15" parent="Dimension Manager/Medieval TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(154, 32)
+
+[node name="Fire16" parent="Dimension Manager/Medieval TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(181, 32)
+
+[node name="Fire17" parent="Dimension Manager/Medieval TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(206, 32)
+
+[node name="Fire18" parent="Dimension Manager/Medieval TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(233, 32)
+
+[node name="Fire19" parent="Dimension Manager/Medieval TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(260, 32)
+
+[node name="Fire20" parent="Dimension Manager/Medieval TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(286, 32)
+
+[node name="Scifi TileMap" type="TileMap" parent="Dimension Manager"]
+tile_set = ExtResource("11_bdxak")
+format = 2
+layer_0/tile_data = PackedInt32Array(196628, 65536, 0, 262164, 65536, 1, 327700, 65536, 2, 196629, 131072, 0, 262165, 131072, 1, 327701, 131072, 2, 196626, 65536, 0, 262162, 65536, 1, 327698, 65536, 2, 196627, 65536, 0, 262163, 65536, 1, 327699, 65536, 2, 196624, 65536, 0, 262160, 65536, 1, 327696, 65536, 2, 196625, 65536, 0, 262161, 65536, 1, 327697, 65536, 2, 196617, 65536, 0, 262153, 65536, 1, 327689, 65536, 1, 196618, 65536, 0, 262154, 65536, 1, 327690, 65536, 2, 196619, 65536, 0, 262155, 65536, 1, 327691, 65536, 2, 196620, 65536, 0, 262156, 65536, 1, 327692, 65536, 2, 196621, 65536, 0, 262157, 65536, 1, 327693, 65536, 2, 196622, 65536, 0, 262158, 65536, 1, 327694, 65536, 2, 196623, 65536, 0, 262159, 65536, 1, 327695, 65536, 2, 393216, 65536, 0, 458752, 65536, 1, 524288, 65536, 2, 393217, 65536, 0, 458753, 65536, 1, 524289, 65536, 2, 393218, 65536, 0, 458754, 65536, 1, 458749, 65536, 0, 524285, 65536, 1, 589821, 65536, 2, 458750, 65536, 0, 524286, 65536, 1, 589822, 65536, 2, 458751, 65536, 0, 524287, 65536, 1, 589823, 65536, 2, 458755, 65536, 1, 393220, 65536, 0, 458747, 65536, 0, 524284, 65536, 1, 393219, 65536, 0, 458748, 65536, 0, 262129, 0, 0, 327665, 0, 1, 393201, 0, 2, 262130, 65536, 0, 327666, 65536, 1, 393202, 65536, 2, 262131, 65536, 0, 327667, 65536, 1, 393203, 65536, 2, 262132, 65536, 0, 327668, 65536, 1, 393204, 65536, 2, 262133, 65536, 0, 327669, 65536, 1, 393205, 65536, 1, 262134, 65536, 0, 327670, 65536, 1, 393206, 65536, 1, 458742, 0, 2, 458743, 65536, 0, 524279, 0, 2, 458744, 65536, 0, 524280, 65536, 1, 589816, 0, 2, 458745, 65536, 0, 524281, 65536, 1, 589817, 65536, 2, 393223, 65536, 0, 458759, 65536, 1, 524295, 131072, 2, 393224, 65536, 0, 458760, 131072, 2, 393225, 131072, 2, 458746, 65536, 0, 524282, 65536, 1, 589818, 65536, 2, 524283, 65536, 1, 589819, 65536, 2, 589820, 65536, 2, 458756, 65536, 1, 393221, 65536, 0, 458757, 65536, 1, 524293, 65536, 2, 393222, 65536, 0, 458758, 65536, 1, 524294, 65536, 2, 524290, 65536, 2, 524291, 65536, 2, 524292, 65536, 2, 196616, 0, 0, 262152, 0, 1, 327688, 0, 1, 262135, 131072, 0, 327671, 131072, 1, 393207, 131072, 1)
+
+[node name="Fire" parent="Dimension Manager/Scifi TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(-41, 79)
+
+[node name="Fire2" parent="Dimension Manager/Scifi TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(-14, 79)
+
+[node name="Fire3" parent="Dimension Manager/Scifi TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(12, 79)
+
+[node name="Fire4" parent="Dimension Manager/Scifi TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(39, 80)
+
+[node name="Fire6" parent="Dimension Manager/Scifi TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(-122, 78)
+
+[node name="Fire7" parent="Dimension Manager/Scifi TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(-96, 78)
+
+[node name="Fire8" parent="Dimension Manager/Scifi TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(-69, 79)
+
+[node name="Fire9" parent="Dimension Manager/Scifi TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(68, 79)
+
+[node name="Fire10" parent="Dimension Manager/Scifi TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(95, 79)
+
+[node name="Fire11" parent="Dimension Manager/Scifi TileMap" instance=ExtResource("11_tqole")]
+position = Vector2(121, 79)

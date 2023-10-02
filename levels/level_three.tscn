@@ -1,0 +1,55 @@
+[gd_scene load_steps=11 format=3 uid="uid://8hp1du1dj8lv"]
+
+[ext_resource type="PackedScene" uid="uid://bg5duujpvcsbp" path="res://player.tscn" id="1_njtjk"]
+[ext_resource type="PackedScene" uid="uid://dmvwvpiveld2x" path="res://required_components/center_of_map.tscn" id="2_lkbq0"]
+[ext_resource type="PackedScene" uid="uid://b8fgkkdilihop" path="res://required_components/spawn_point.tscn" id="3_8a3d1"]
+[ext_resource type="PackedScene" uid="uid://dtwnsdcfwsxsa" path="res://required_components/reset_box.tscn" id="4_osysa"]
+[ext_resource type="PackedScene" uid="uid://b105lh8bok01d" path="res://required_components/portal.tscn" id="5_kbui7"]
+[ext_resource type="PackedScene" uid="uid://beixajgn70rx4" path="res://required_components/timer.tscn" id="6_0gf0y"]
+[ext_resource type="PackedScene" uid="uid://ck5dy5ui1hhi3" path="res://required_components/dimension_manager.tscn" id="7_x333r"]
+[ext_resource type="TileSet" uid="uid://b2i8b24hw8ie7" path="res://tilesets/medieval.tres" id="8_gjhq4"]
+[ext_resource type="PackedScene" uid="uid://bo7frhx3q3jsl" path="res://required_components/fire.tscn" id="11_pc6e8"]
+[ext_resource type="TileSet" uid="uid://d0u5xc7b41y80" path="res://tilesets/placeholder.tres" id="12_8srpd"]
+
+[node name="level_three" type="Node2D"]
+
+[node name="Player" parent="." node_paths=PackedStringArray("spawn_point", "reset_box", "center_of_map", "dimension_1_tile_map", "dimension_2_tile_map") instance=ExtResource("1_njtjk")]
+position = Vector2(0, -100)
+spawn_point = NodePath("../Spawn Point")
+reset_box = NodePath("../Reset Box")
+center_of_map = NodePath("../Center of Map")
+dimension_1_tile_map = NodePath("../Dimension Manager/Medieval TileMap")
+dimension_2_tile_map = NodePath("../Dimension Manager/Scifi TileMap")
+
+[node name="Center of Map" parent="." instance=ExtResource("2_lkbq0")]
+position = Vector2(192.245, 0)
+
+[node name="Spawn Point" parent="." instance=ExtResource("3_8a3d1")]
+
+[node name="Reset Box" parent="." instance=ExtResource("4_osysa")]
+
+[node name="Portal" parent="." instance=ExtResource("5_kbui7")]
+position = Vector2(0, -170)
+next_level = "res://levels/tutorial.tscn"
+
+[node name="Timer" parent="." instance=ExtResource("6_0gf0y")]
+
+[node name="Dimension Manager" parent="." node_paths=PackedStringArray("dimension_1_tile_map", "dimension_2_tile_map") instance=ExtResource("7_x333r")]
+dimension_1_tile_map = NodePath("Medieval TileMap")
+dimension_2_tile_map = NodePath("Scifi TileMap")
+
+[node name="Medieval TileMap" type="TileMap" parent="Dimension Manager"]
+tile_set = ExtResource("8_gjhq4")
+format = 2
+layer_0/tile_data = PackedInt32Array(327677, 0, 1, 262141, 0, 0, 393213, 0, 2, 262142, 65536, 0, 327678, 65536, 1, 393214, 65536, 2, 262143, 65536, 0, 327679, 65536, 1, 393215, 65536, 2, 196608, 65536, 0, 262144, 65536, 1, 327680, 65536, 2, 196609, 65536, 0, 262145, 65536, 1, 327681, 65536, 2, 196610, 131072, 0, 262146, 131072, 1, 327682, 131072, 2, -196599, 0, 0, -131063, 0, 1, -65527, 0, 2, -196598, 65536, 0, -131062, 65536, 1, -65526, 65536, 2, -196597, 65536, 0, -131061, 65536, 1, -65525, 65536, 2, -196596, 65536, 0, -131060, 65536, 1, -65524, 65536, 2, -196595, 65536, 0, -131059, 65536, 1, -65523, 65536, 2, -196594, 65536, 0, -131058, 65536, 1, -65522, 65536, 2, -589815, 0, 0, -524279, 0, 1, -458743, 0, 2, -589814, 65536, 0, -524278, 65536, 1, -458742, 65536, 2, -589813, 65536, 0, -524277, 65536, 1, -458741, 65536, 2, -589812, 65536, 0, -524276, 65536, 1, -458740, 65536, 2, -589811, 65536, 0, -524275, 65536, 1, -458739, 65536, 2, -589810, 131072, 0, -524274, 131072, 1, -458738, 131072, 2, -196591, 131072, 0, -131055, 131072, 1, -65519, 131072, 2, -196592, 65536, 0, -131056, 65536, 1, -65520, 65536, 2, -196593, 65536, 0, -131057, 65536, 1, -65521, 65536, 2)
+
+[node name="Fire" parent="Dimension Manager/Medieval TileMap" instance=ExtResource("11_pc6e8")]
+position = Vector2(191, -160)
+
+[node name="Scifi TileMap" type="TileMap" parent="Dimension Manager"]
+tile_set = ExtResource("12_8srpd")
+format = 2
+layer_0/tile_data = PackedInt32Array(262141, 0, 0, 327677, 0, 1, 393213, 0, 2, 262142, 65536, 0, 327678, 65536, 1, 393214, 65536, 2, 262143, 65536, 0, 327679, 65536, 1, 393215, 65536, 2, 196608, 65536, 0, 262144, 65536, 1, 327680, 65536, 2, 196609, 65536, 0, 262145, 65536, 1, 327681, 65536, 2, 196610, 131072, 0, 262146, 131072, 1, 327682, 131072, 2, 3, 0, 0, 65539, 0, 1, 131075, 0, 2, 4, 65536, 0, 65540, 65536, 1, 131076, 65536, 2, 5, 65536, 0, 65541, 65536, 1, 131077, 65536, 2, 6, 65536, 0, 65542, 65536, 1, 131078, 65536, 2, 7, 65536, 0, 65543, 65536, 1, 131079, 65536, 2, 8, 131072, 0, 65544, 131072, 1, 131080, 131072, 2, -393198, 0, 0, -327662, 0, 1, -262126, 0, 2, -393197, 65536, 0, -327661, 65536, 1, -262125, 65536, 2, -393196, 65536, 0, -327660, 65536, 1, -262124, 65536, 2, -786429, 0, 0, -720893, 0, 1, -655357, 0, 2, -786428, 65536, 0, -720892, 65536, 1, -655356, 65536, 2, -786427, 65536, 0, -720891, 65536, 1, -655355, 65536, 2, -786426, 65536, 0, -720890, 65536, 1, -655354, 65536, 2, -786425, 65536, 0, -720889, 65536, 1, -655353, 65536, 2, -786424, 131072, 0, -720888, 131072, 1, -655352, 131072, 2, -393195, 65536, 0, -327659, 65536, 1, -262123, 65536, 2, -393194, 65536, 0, -327658, 65536, 1, -262122, 65536, 2, -393193, 131072, 0, -327657, 131072, 1, -262121, 131072, 2)
+
+[node name="Fire" parent="Dimension Manager/Scifi TileMap" instance=ExtResource("11_pc6e8")]
+position = Vector2(94, -16)

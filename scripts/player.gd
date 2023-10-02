@@ -19,6 +19,8 @@ extends CharacterBody2D
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var player = $"."
 @onready var timer = $"../Timer"
+@onready var jump_audio_stream_player = $"Jump AudioStreamPlayer"
+
 
 var respawning : bool = false
 var lerp_weight : float = 0
@@ -71,6 +73,7 @@ func _physics_process(delta):
 		# Handle Jump.
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = jump_velocity
+			jump_audio_stream_player.play()
 		
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
