@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx4bamd4bxul7"]
+
+[ext_resource type="Texture2D" uid="uid://cew6revhn3ec0" path="res://graphics/barrel(1).png" id="1_ybqvt"]
+
+[node name="Barrel" type="Sprite2D"]
+z_index = -1
+position = Vector2(-40, 32)
+texture = ExtResource("1_ybqvt")
