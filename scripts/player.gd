@@ -13,6 +13,7 @@ extends CharacterBody2D
 @export var dimension_1_tile_map : TileMap
 @export var dimension_2_tile_map : TileMap
 
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var collision_shape_2d = $CollisionShape2D
@@ -99,3 +100,7 @@ func reset_spawn():
 
 func _on_timer_timeout():
 	get_tree().change_scene_to_file("res://game_over.tscn")
+
+
+
+	
