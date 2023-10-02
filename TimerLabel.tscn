@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://nbnlv7de2vxv"]
-
-[ext_resource type="Script" path="res://Label.gd" id="1_q7s5m"]
+[gd_scene format=3 uid="uid://nbnlv7de2vxv"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -15,7 +13,3 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Time: 00:00"
-script = ExtResource("1_q7s5m")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 120.0

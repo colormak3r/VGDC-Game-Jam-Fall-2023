@@ -17,6 +17,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var player = $"."
+@onready var timer = $"../Timer"
 
 var respawning : bool = false
 var lerp_weight : float = 0
@@ -29,9 +30,11 @@ func _ready():
 		
 	# Connect the player to dimention 2 fires
 	for fire in dimension_2_tile_map.get_children(): 
+
 		if fire.has_signal("fire_triggered"):
 			fire.fire_triggered.connect(_on_fire_triggered)
-		
+  # Starting the countdown timer for the current level.
+	timer.start()
 	# Connect the player to the reset box
 	reset_box.resetbox_triggered.connect(_on_resetbox_triggered)
 
@@ -79,6 +82,7 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, speed)
 		
 		move_and_slide()
+
 	
 
 func _on_resetbox_triggered():
@@ -90,3 +94,5 @@ func _on_fire_triggered() :
 func reset_spawn():
 	respawning = true
 
+func _on_timer_timeout():
+	get_tree().change_scene_to_file("res://game_over.tscn")

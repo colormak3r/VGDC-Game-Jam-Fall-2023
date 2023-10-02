@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://ckeretr8wrklo"]
+[gd_scene load_steps=13 format=3 uid="uid://ckeretr8wrklo"]
 
 [ext_resource type="PackedScene" uid="uid://bg5duujpvcsbp" path="res://player.tscn" id="1_h3l18"]
+
 [ext_resource type="Script" path="res://dimensionmanager.gd" id="2_2sktd"]
 [ext_resource type="PackedScene" uid="uid://dtwnsdcfwsxsa" path="res://required_components/reset_box.tscn" id="2_coem5"]
 [ext_resource type="PackedScene" uid="uid://b8fgkkdilihop" path="res://required_components/spawn_point.tscn" id="3_2gaql"]
@@ -22,6 +23,13 @@ center_of_map = NodePath("")
 dimension_1_tile_map = NodePath("../Dimension Manager/Dimension 1 TileMap")
 dimension_2_tile_map = NodePath("../Dimension Manager/Dimension 2 TileMap")
 
+[node name="Label" type="Label" parent="Player"]
+offset_left = -180.0
+offset_top = -100.0
+offset_right = -140.0
+offset_bottom = -77.0
+script = ExtResource("3_fvdx1")
+score_time = 60.0
 [node name="Reset Box" parent="." instance=ExtResource("2_coem5")]
 position = Vector2(530, 200)
 scale = Vector2(1, 1e-05)
@@ -78,6 +86,13 @@ position = Vector2(260, -30)
 
 [node name="Portal" parent="." instance=ExtResource("5_jkgml")]
 position = Vector2(1140, 20)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 120.0
+one_shot = true
+
+[connection signal="body_entered" from="ResetBox" to="Player" method="_on_reset_box_body_entered"]
+[connection signal="timeout" from="Timer" to="Player" method="_on_timer_timeout"]
 
 [node name="Center of Map" parent="." instance=ExtResource("11_jwuha")]
 position = Vector2(530, 0)
