@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bg5duujpvcsbp"]
+[gd_scene load_steps=15 format=3 uid="uid://bg5duujpvcsbp"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_0sexr"]
 [ext_resource type="Texture2D" uid="uid://ddb5b6lmhgike" path="res://graphics/lulu.png" id="2_qasda"]
@@ -21,6 +21,14 @@ region = Rect2(0, 32, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_md72p"]
 atlas = ExtResource("3_oj6hv")
 region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwb21"]
+atlas = ExtResource("3_oj6hv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t323f"]
+atlas = ExtResource("3_oj6hv")
+region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lxluh"]
 animations = [{
@@ -47,6 +55,17 @@ animations = [{
 "loop": true,
 "name": &"Spin",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwb21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t323f")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
 }]
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("medieval_bg", "scifi_bg") groups=["Player"]]
@@ -62,7 +81,7 @@ shape = SubResource("CircleShape2D_oviij")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lxluh")
-animation = &"Spin"
+animation = &"Walk"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

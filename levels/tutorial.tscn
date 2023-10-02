@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dmvwvpiveld2x" path="res://required_components/center_of_map.tscn" id="8_udkvf"]
 [ext_resource type="Script" path="res://levels/bg_music.gd" id="10_hosw8"]
 [ext_resource type="AudioStream" uid="uid://d05kg7ivnieh5" path="res://audio/Ride_of_the_Valkyries_by_Wagner.mp3" id="11_re3xr"]
-[ext_resource type="PackedScene" uid="uid://dek2swps1gjd4" path="res://bone.tscn" id="12_1drg0"]
+[ext_resource type="PackedScene" path="res://bone.tscn" id="12_1drg0"]
 
 [node name="Tutorial" type="Node2D"]
 

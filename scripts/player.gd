@@ -64,13 +64,8 @@ func _physics_process(delta):
 			pass
 		
 		# Add the gravity.
-		if not is_on_floor():
+		if not is_on_floor():			
 			velocity.y += gravity * delta
-		
-		if is_on_floor():
-			animated_sprite_2d.play("Idle")
-		else :
-			animated_sprite_2d.play("Jump")
 		
 		# Handle Jump.
 		if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -82,6 +77,14 @@ func _physics_process(delta):
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		var direction = Input.get_axis("left", "right")
+		
+		if not is_on_floor():
+			animated_sprite_2d.play("Jump")
+		else :
+			if direction == 0 : 
+				animated_sprite_2d.play("Idle")
+			else  : 
+				animated_sprite_2d.play("Walk")
 		
 		# Flip sprite by direction
 		if direction != 0 :
