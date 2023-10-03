@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cx4bamd4bxul7" path="res://props/barrel.tscn" id="9_r50oc"]
 [ext_resource type="TileSet" uid="uid://10ojo1xlx1lm" path="res://tilesets/scifi.tres" id="11_50160"]
 [ext_resource type="PackedScene" uid="uid://beixajgn70rx4" path="res://required_components/timer.tscn" id="11_dss6y"]
-[ext_resource type="PackedScene" path="res://bone.tscn" id="12_egq2y"]
+[ext_resource type="PackedScene" uid="uid://dek2swps1gjd4" path="res://bone.tscn" id="12_egq2y"]
 
 [node name="level_one" type="Node2D"]
 

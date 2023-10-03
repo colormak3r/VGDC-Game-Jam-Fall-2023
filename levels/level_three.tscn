@@ -10,7 +10,7 @@
 [ext_resource type="TileSet" uid="uid://b2i8b24hw8ie7" path="res://tilesets/medieval.tres" id="8_gjhq4"]
 [ext_resource type="TileSet" uid="uid://10ojo1xlx1lm" path="res://tilesets/scifi.tres" id="10_w24iw"]
 [ext_resource type="PackedScene" uid="uid://bo7frhx3q3jsl" path="res://required_components/fire.tscn" id="11_pc6e8"]
-[ext_resource type="PackedScene" path="res://bone.tscn" id="11_wmvdf"]
+[ext_resource type="PackedScene" uid="uid://dek2swps1gjd4" path="res://bone.tscn" id="11_wmvdf"]
 
 [node name="level_three" type="Node2D"]
 
